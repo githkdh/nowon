@@ -1,0 +1,14 @@
+@charset "utf-8"; 
+
+/* 임시 스타일 */
+.docu_title { font-size: 1em; }
+.capture_image_figure { margin-bottom: 1.5em; }
+.capture_image_figure p { margin: 0; }
+.capture_image_figure .figcaption {
+	display: inline-block;
+	padding: .5em 1em;
+	font-size: .9em; 
+	color: #333; 
+	letter-spacing: -1px;
+	background-color: #eee;
+}
