@@ -3,9 +3,9 @@
 주소 : http://naver.com<br>
 UI컴포넌트 이름(id) : "ranklist"<br>
 ranklist -> PC로 접속했을 때 기본 상태<br>
-![캡쳐이미지](./ranklist.png)
+![캡쳐이미지](./ranklist.png)<br>
 rankpop -> 마우스가 over 되었을 때 1부터 10까지 모두 표시하는 상태. <br>
-![캡쳐이미지](./rankpop.png)
+![캡쳐이미지](./rankpop.png)<br>
 
 
 ## 마크업 특징 : 
