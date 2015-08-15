@@ -18,16 +18,18 @@ rankpop -> 마우스가 over 되었을 때 1부터 10까지 모두 표시하는 
 ~~~
 /* 검색어 단일 */
 {
-	value: 1, 
-	keyword: '검색어', 
-	state: 'NEW/UP/DOWN', 
-	rank: 75
+	rank: {
+		value: 1, 
+		keyword: '검색어', 
+		state: 'NEW/UP/DOWN', 
+		rank: 75
+	}
 }
 
 /* 검색어 10개 */
 {
 	"rankList": [
-		/* rank */ 
+		/* {rank} */ 
 	]
 }
 ~~~
