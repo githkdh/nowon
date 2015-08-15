@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>'실시간 금상승 검색어' 시작페이지</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="noindex">
+	<meta name="googlebot" content="noindex">
+	<style>
+		/* 전체 도메인 기본 스타일 */
+		/* naver_ranklist_index = nridx */
+		.nridx {
+			font-size: 13px; 
+			font-family: '맑은 고딕', verdana; 
+			color: #333; 
+			line-height: 1.6; 
+			-webkit-text-size-adjust: 100%;
+		}
+
+		@media screen and (max-width: 600px) {
+			.nridx {
+				font-size: 14px;
+			}
+		}
+
+		/* 임시 스타일 */
+		.docu_title { font-size: 1em; }
+		.capture_image_figure { margin-bottom: 1.5em; }
+		.capture_image_figure p { margin: 0; }
+		.capture_image_figure .figcaption {
+			font-size: .9em; 
+			color: #666; 
+			letter-spacing: -1px;
+		}
+	</style>
+</head>
+<body class="naver_ranklist_index nridx">
+
+	<h1 class="docu_title">'실시간 금상승 검색어' UIC 분석하고 이해하기</h1>
+
+	<div class="capture_image_figure">
+		<p><img src="./ranklist.png" alt=""></p>
+		<p class="figcaption">그림1. PC로 접속했을 때의 기본 상태</p>
+	</div>
+
+	<div class="capture_image_figure">
+		<p><img src="./rankpop.png" alt=""></p>
+		<p class="figcaption">그림2. MOUSE over 했을 때의 상태</p>
+	</div>
+
+	<p># ranklist Object는 소스코드보기를 통해서 확인..</p>
+	<script>
+		var ranklist = [
+			{
+				value: 1, 
+				keyword: '첫번째', 
+				state: 'NEW', 
+				rank: 0
+			}, 
+			{
+				value: 2, 
+				keyword: '두번째', 
+				state: 'UP', 
+				rank: 50
+			} 
+		];
+	</script>
+
+	
+</body>
+</html>
