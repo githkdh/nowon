@@ -1,9 +1,9 @@
 # 네이버 '실시간 금상승 검색어' UI 컴포넌트 
 
-주소 : http://naver.com
-UI컴포넌트 이름(id) : "ranklist"
-ranklist -> PC로 접속했을 때 기본 상태
-rankpop -> 마우스가 over 되었을 때 1부터 10까지 모두 표시하는 상태. 
+주소 : http://naver.com<br>
+UI컴포넌트 이름(id) : "ranklist"<br>
+ranklist -> PC로 접속했을 때 기본 상태<br>
+rankpop -> 마우스가 over 되었을 때 1부터 10까지 모두 표시하는 상태. <br>
 
 ## 마크업 특징 : 
 
