@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html lang="ko-KR" class="no-js ie8"><![endif]-->
+<!--[if IE 9]><html lang="ko-KR" class="no-js ie9"><![endif]-->
+<!--[if !IE]><!--><html lang="ko-KR" class="no-js modern"><!--<![endif]-->
+<head>
+<meta charset="UTF-8">
+<!--[if gte IE 8]><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"><![endif]-->
+<title>실시간 급상승 검색어와 핫토픽</title>
+<link rel="stylesheet" src="http://normalize-css.googlecode.com/svn/trunk/normalize.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<style type="text/css">	
+	body {font-family: Dotum,'돋움',Helvetica,AppleSDGothicNeo,sans-serif;}
+	a {text-decoration:none;}
+	a:hover {text-decoration:underline;}
+	.blind {overflow:hidden;position:absolute;width:0;height:0;line-height:0;text-indent:-9999px;}
+
+	#wrapper {margin:30px;}
+	#wrapper > a {color:#999;}
+	.rank-wrapper {
+		position: relative;
+		height: 35px;
+		margin:48px 0; padding: 9.6px 16px 0;
+		background: #23b300;
+	}
+	.rank {overflow: hidden;}
+	.rank-cnts {float: right; width: 240px; font-size:14px;}
+	.rank-srch {overflow:hidden; height:20px;}
+	.rank-title {font-size:0;line-height:0;text-indent:-10000px;}
+	.rank ol {list-style: none;}
+	.rank-lst {item-style-position: inside;}
+	.rank-lst-srch {
+		position:relative; 
+		margin-top: 0; margin-left:16px; padding:0;
+		background:url(http://img.naver.net/static/www/img/sp_main150211.png) no-repeat -421px -18px;
+		transition-property : margin-top; -webkit-transition-property : margin-top;
+		transition-duration : 0.2s; -webkit-transition-duration : 0.2s;
+	}
+	.rank-item {
+		position:relative;
+		height:20px;
+		line-height: 20px;
+	}	
+	.rank-a {
+		display:block; overflow:hidden;
+		padding: 0 24px;
+		color: #fff; color:#fff;
+	}	
+	.rank-icon {
+		position: absolute; right:40px;
+		width: 10px; height: 10px;
+		margin-top: 5px;
+		background-image: url(http://img.naver.net/static/www/img/sp_main150211.png);
+		text-indent: -1000px;
+		}
+		.rank-item.up .rank-icon {background-position:-82px -110px;}
+		.rank-item.dn .rank-icon {background-position:-70px -110px;}
+		.rank-item.new .rank-icon {margin-top:1px; background-image: none; text-indent:inherit;}
+	.rank-val {
+		position: absolute; right: 0;
+		width: 48px; 
+		font-family: 'tahoma',sans-serif; color: #0e4800;
+		text-align:center;		
+		}
+		.rank-item.new .rank-val {display: none;}
+	
+	/* rank-show */
+	.rank-show {
+		clear:both;
+		height:auto;
+		position:absolute; top:0; right:0; z-index:10;
+		width:272px;
+		border:1px solid #2db400; background-color:#fff;
+	}
+	.rank-show .rank-title {
+		padding:1.6px 0 2px 16px;
+		font-size:inherit; line-height:inherit; text-indent:inherit; font-weight:bold; color:#222;
+		line-height:25px; letter-spacing:-1px
+	}
+	.rank-show .rank-lst-srch {
+		margin-top: -8px !important; margin-left:0; 
+		transition:none; -webkit-transition:none;
+		background:url(http://img.naver.net/static/www/img/sp_main150211.png) no-repeat -406px -992px;
+	}
+	.rank-show .rank-item {height: 24px;}
+	.rank-show .rank-item.active {font-weight:bold;}
+	.rank-show .rank-a {
+		display:block;
+		overflow:hidden;
+		position:relative; z-index:2;
+		padding:1px 45px 0 45px;
+		color:#222;
+		white-space:nowrap; cursor:pointer;
+	}
+	.rank-show .rank-icon {right: 59px;}
+	.rank-show .up .rank-icon {background-position:-70px -121px;}
+	.rank-show .dn .rank-icon {background-position:-82px -121px;}
+	.rank-show .rank-val {right: 16px;}
+
+	/* description */
+	.description {margin-top:50px; padding-top:0; border-top:solid 1px #ccc; font-size:14px; line-height:35.2px;}
+	.description h3 {margin:40px 0 5px;}
+	.description h3:before {content: '*'; margin-right: 5px; font-size: 1.5em; vertical-align: middle;}
+	.description dl {margin: 0 0 0 15px; font-size: 12px; line-height: 1.8em; color: #666;}
+	.description dt {float: left; margin-right: 10px;}
+	.description dt:before {content: '○'; margin-right: 10px;}
+	.description dd:before {content: ':'; margin-right: 10px;}
+	.description h4 {margin:0; font-size: 14px; text-decoration:underline;}
+	.description ol {margin:0 0 48px;}
+	.description ol ol {margin:0 0 16px;}
+	.description ol li {font-size:13px;}
+	.description ol li li {font-size:12px; color:#666;}
+</style>
+</head>
+<body>
+
+<div id="wrapper">
+	<a href="#href">Tab Key Test</a>
+
+	<div class="rank-wrapper">
+		<section class="rank">
+			<h2 class="blind">실시간 급상승 검색어와 핫토픽</h2>
+			<div class="rank-cnts rank-srch">
+				<h3 class="rank-title">실시간 급상승 검색어</h3>
+				<ol class="rank-lst rank-lst-srch">
+					<!-- <li id="lastrank" value="1" class="up"><a href="#href" class="rank-a">이괄의 난<span class="tx">상승</span><span class="ic"></span><span class="rk">243</span></a></li> -->
+				</ol>
+				<noscript>
+					<select name="rank" id="rank">
+						<option value="이괄의 난">1위 : 이괄의 난</option>
+						<option value="너를 기억해">2위 : 너를 기억해</option>
+						<option value="화정">3위 : 화정</option>
+						<option value="홍수아">4위 : 홍수아</option>
+						<option value="미세스캅">5위 : 미세스캅</option>
+						<option value="이태임">6위 : 이태임</option>
+						<option value="추자현">7위 : 추자현</option>
+						<option value="18초">8위 : 18초</option>
+						<option value="막돼먹은 영애..">9위 : 막돼먹은 영애..</option>
+						<option value="화요일 예능">10위 : 화요일 예능</option>
+					</select>
+				</noscript>
+			</div>
+			<div class="rank-cnts rank-topic">
+				<h3 class="rank-title">핫토픽</h3>
+				<ol class="rank-lst rank-lst-topic">
+				</ol>
+			</div>
+		</section>
+	</div>
+
+	<a href="#href">Tab Key Test</a>
+
+	<section class="description">
+		<h3>기본 정보</h3>
+		<dl>
+			<dt>주제</dt>
+			<dd>네이버 실시간 검색어 랭킹 정보 </dd>
+			<dt>기기</dt>
+			<dd>데스크탑, 모바일</dd>
+			<dt>브라우저</dt>
+			<dd>크롬, 파이어폭스, 오페라, 사파리, ie(8,9,10,11)</dd>
+		</dl>
+		<h3>스크립트 적용 순서</h3>
+		<ol>
+			<li>
+				<h4>레이아웃 템플릿을 만든다.</h4>
+				<ol>
+					<li>실시간 검색어와 핫토픽의 랭킹 정보를 보여줄 제목과 영역의 템플릿을 그린다.</li>
+					<li>핫토픽은 hide 하고 실시간 검색어만 보인다.</li>
+				</ol>
+			</li>
+			<li>
+				<h4>실시간 검색어 데이터를 가져온다.</h4>
+				<ol>
+					<li>아이템 템플릿을 그린다.</li>
+					<li>실시간 검색어의 데이터(검색어, 상승 or 하강, 변경된 등급차)를 가져온다.</li>					
+				</ol>
+			</li>
+			<li>
+				<h4>애니메이션 적용</h4>
+				<ol>
+					<li>랭킹 아이템은 2초마다 순차적으로 정보를 보여준다.</li>
+					<li>랭킹 아이템이 10위가 되면 다시 1위로 돌아온다.</li>
+				</ol>
+			</li>
+			<li>
+				<h4>Web - 랭킹 아이템에  마우스가 올라가거나 포커스가 들어오면</h4>
+				<ol>
+					<li>랭킹 제목과 랭킹 전목록을 보여준다.</li>
+					<li>순차적으로 보이던 애니메이션은 멈춘다.</li>
+					<li>이전에 보여지던 아이템을 활성화한다.</li>
+				</ol>
+				<h4>Mobile - 랭킹 아이템을 클릭하면 </h4>
+				<ol>
+					<li>실시간 검색 랭킹의 모든 정보를 보여준다.</li>
+					<li>핫토픽의 제목을 보여준다. </li>
+					<li>업데이트 날짜와 시간을 보여준다.</li>
+					<li>한단에 패널 전환할 수 있는 nav를 추가한다.</li>
+					<li>핫토픽을 누르면
+						<ol>
+							<li>핫토픽 정보를 받아온다.</li>
+							<li>현재 패널은 사라지고 핫토픽 패널이 들어온다.</li>
+						</ol>
+					</li>
+					<li>좌우 tocch 슬라이드를 적용한다.</li>
+				</ol>
+			 </li>
+			<li>
+				<h4>Web - 랭킹 정보에서 마우스가 나가거나 포커스가 사라지면 <br>
+					Mobile - hide 버튼을 누르면
+				</h4>
+				<ol>
+					<li>활성화 했던 아이템을 보여주고 다른 정보는 hide 한다.</li>
+					<li>아이템 정보를 순차적으로 보여준다.</li>
+				</ol>
+			</li>
+		</ol>
+		<h3>질문 및 과제</h3>
+		<ol>
+			<li>
+				<h4>Web</h4>
+				<ol>
+					<li>In CSS : ie9이하인 경우 애니메이션(transition-property와 비슷한) 적용 방법은?</li>
+					<li>In CSS : In Safari - a link:hover text decoration</li>
+					<li>In Javascript : Event Multi로 하는 방법이 있나?</li>
+					<li>In Javascript : Tab Key 이동시(focusin/focusout Event) Firefox, ie8 적용 방법</li>
+					<li>In Javascript : 10위에서 1위로 이동시 이전 애니메이션과 동일하게 구현</li>
+				</ol>
+			</li>
+			<li>
+				<h4>Mobile</h4>
+				<ol>
+					<li>미작업</li>
+				</ol>
+			</li>
+		</ol>
+	</section>
+
+</div>		
+
+<script>
+
+	UI = {
+		load : function(){
+			this.rankCtrl();
+		}
+		, rankCtrl : function(){
+			//선택자 선언
+			var doc = document,
+				rank = doc.querySelectorAll('.rank')[0],
+				rankSrch = rank.querySelectorAll('.rank-srch')[0],
+				rankTopic = rank.querySelectorAll('.rank-topic')[0],
+				rankSrchList = rankSrch.querySelectorAll('.rank-lst-srch')[0];
+			
+			// 클래스명 
+			var cnRankItem = 'rank-item',
+				cnActive = 'active',
+				cnRankShow = 'rank-show';
+			
+			// 변수 선언
+			var idx = 0,
+				len = 10,
+				h = 20,
+				intervalTime = 2000,	
+				intervalrankMove;
+
+			// 함수
+			var init = function(){
+				rankTopic.style.display = 'none'; //topic hide
+				drawItem(); //item 템플릿 적용
+				rankMove();	//rank moving 
+			}
+			var drawItem = function(){
+				var rankText, textIdx, val, templet;
+				for(var i=0 ; i<len ; i++) {
+					rankText = ['상승', '하강','new'];
+					textIdx = Math.floor(Math.random()*rankText.length);
+					val = Math.floor((Math.random() * 200) + 1);			
+					templet = '<a href="#href" class="rank-a">실시간 검색어 '+ (i+1) + '<span class="rank-icon">'+ rankText[textIdx] +'</span><span class="rank-val">'+ val + '</span></a>';
+					node = document.createElement("li");
+					node.className = cnRankItem;
+					if(textIdx == 0)
+						UTIL.addClass(node, 'up');
+					else if(textIdx == 1)
+						UTIL.addClass(node, 'dn');
+					else 
+						UTIL.addClass(node, 'new');
+					node.innerHTML = templet;
+					rankSrchList.appendChild(node);
+					idx = 1;
+				}
+			}
+			var rankMove = function(){
+				intervalrankMove = setInterval(function(){
+					if(Modernizr.csstransitions) {
+						rankSrchList.style.transitionProperty = '';
+						rankSrchList.style.webkitTransitionProperty = '';
+					} else { // lt ie9
+					}
+					rankSrchList.style.marginTop = '-' + h*idx + 'px' ;
+					idx = (idx == len-1) ? 0 : idx+1;					
+				}, intervalTime);
+			}
+			var rankAll = function(){
+				clearInterval(intervalrankMove);
+				if(idx == 0) idx = 1;
+				UTIL.addClass(rankSrchList.querySelectorAll('.'+cnRankItem)[idx-1], cnActive);
+				UTIL.addClass(rankSrch, cnRankShow);
+			}
+			var rankSimply = function(){
+				if(Modernizr.csstransitions) {
+					rankSrchList.style.transitionProperty = 'none';
+					rankSrchList.style.webkitTransitionProperty = 'none';
+				} else { // lt ie9
+				}
+				UTIL.removeClass(rankSrchList.querySelectorAll('.'+cnRankItem)[idx-1], cnActive);
+				UTIL.removeClass(rankSrch, cnRankShow);
+				rankMove();
+			}
+			
+			// 이벤트
+			rankSrch.onmouseover = function(){	
+				rankAll();
+			}
+			rankSrch.onmouseout = function(){
+				rankSimply();
+			}
+			// ie9, ie10, chrome, opera, safari (not in ie8, firefox)
+			rankSrch.addEventListener('focusin', function(){
+				rankAll();
+			});
+			rankSrch.addEventListener('focusout', function(){ 
+				rankSimply();
+			});
+			//ie8, ie9, ie10, opera (not in chrome, safari, firefox)
+			/*rankSrch.onfocusin = function(){	
+				rankAll();
+			}
+			rankSrch.onfocusout = function(){
+				rankSimply();
+			}	*/		
+
+			// 실행
+			init();
+		}
+	}
+
+	// 유틸
+	UTIL = {
+		addClass : function(e, clsName){
+			var cn = e.className;
+			if(cn.indexOf(clsName) != -1) return;
+			if(cn != '') clsName = ' ' + clsName;
+			e.className  = cn + clsName;
+		}
+		, removeClass : function(e, clsName){
+			var cn = e.className;
+		    var rxp = new RegExp( "\\s?\\b"+clsName+"\\b", "g" );
+		    cn = cn.replace( rxp, '' );
+		    e.className = cn;
+		}
+	}
+
+	UI.load();
+	
+
+</script>		
+</body>
+</html>
