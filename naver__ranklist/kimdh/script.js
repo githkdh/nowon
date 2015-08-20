@@ -100,7 +100,8 @@ var rankc_util = {
 		this.setRwd(); 	
 	}, 
 	setRwd: function() {
-		if(document.width <= 400) {
+		/* document.width */
+		if(html.clientWidth <= 400) {
 			rwd = 'Small'; 
 		} else {
 			rwd = 'Big'; 
@@ -127,6 +128,7 @@ var rankc_util = {
 /* Log / Monitoring / RWD */
 
 var log = doc.getElementById('log');
+var html = doc.getElementsByTagName('HTML')[0];
 var body = doc.getElementsByTagName('BODY')[0];
 var bodyClassName = body.className.split(' '); 
 var rwd;
