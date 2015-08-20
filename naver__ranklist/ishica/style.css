@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+body {margin:0; padding:0; font-family: 돋움, Dotum, Helvetica, 'Apple SD Gothic Neo', sans-serif;}
+a {text-decoration: none; }
+ul {margin:0; padding:0;}
+ul li {list-style: none;}
+i, em {font-style:normal;}
+span {white-space: nowrap; text-overflow: ellipsis;word-wrap: normal;}
+
+
+.navi {position:relative; margin:30px 0 0 0; text-align:center;color:#fff; background: #23b400; }
+.navi ul ul {display:none; position:absolute; top:0; left:50%;  margin-left:-135px; width:213px; border:1px solid #23b400; background:#fff;}
+.navi  ul .title>a {display:block; color:#fff; line-height:50px;}
+.navi ul .title {height:50px;}
+.navi ul li:hover .ranking {display: block;}
+.navi ul .ranking li {text-align: left;}
+.navi ul .ranking li a {color:#333;}
+.navi ul .ranking li a:hover > .text {text-decoration: underline;}
+
+.ranking {padding:0 25px 0 30px; font-size:12px; letter-spacing:-1px;}
+.ranking .subTitle {padding:10px 0 2px 0; color:#333; text-align:left; }
+.num {display:inline-block; width:16px; height:16px; margin:0 7px 13px 0; border:1px solid #e7e7e7; line-height:20px; text-align:center;  border-radius: 1px;}
+.ranking .text {display:inline-block; width:132px;}
+.ranking .rt {display:inline-block; width:20px; text-align:right;}
+.noTxt{display:inline-block; text-indent: -9999px; overflow:hidden; width:7px; height:10px; margin-right:10px; }
+.up, .down, .same {display:inline-block; width:7px; height:10px; margin-right:10px;text-indent: -9999px; overflow:hidden;}
+
+
+.new {color:red;}
+.up{background:url('ico_lanking.png') 0 -10px;}
+.down {background:url('ico_lanking.png') -12px -10px;}
+.same {background:url('ico_lanking.png') -23px -10px;}
