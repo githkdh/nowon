@@ -13,3 +13,8 @@
 
 document.width 프로퍼티가 크롬에서 동작하지 않음. <br>
 html Element의 'clientWidth'의 값을 이용하여 구현. 
+
+~~~
+var html = doc.getElementsByTagName('HTML')[0];
+if(html.clientWidth <= 400) {} else {}
+~~~
