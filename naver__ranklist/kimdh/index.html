@@ -10,51 +10,196 @@
 		/* 전체 도메인 기본 스타일 */
 		/* naver_ranklist_index = nridx */
 		.nridx {
-			font-size: 13px; 
-			font-family: '맑은 고딕', verdana; 
+			font-size: 12px; 
+			font-family: '돋움', '맑은 고딕', verdana; 
 			color: #333; 
 			line-height: 1.6; 
 			-webkit-text-size-adjust: 100%;
 		}
 
-		@media screen and (max-width: 600px) {
-			.nridx {
-				font-size: 14px;
-			}
-		}
+		@media screen and (max-width: 400px) {}
+
 	</style>
 	<link rel="stylesheet" href="./dev_style.css">
 </head>
 <body class="naver_ranklist_index nridx">
 
 	<h1 class="docu_title">'실시간 금상승 검색어' UIC 분석하고 이해하기</h1>
+	<hr>
 
-	<div class="capture_image_figure">
-		<p><img src="./ranklist.png" alt=""></p>
-		<p class="figcaption">그림1. PC로 접속했을 때의 기본 상태</p>
+
+
+
+	<div id="rankc" class="rankc ranklist">
+		<div class="rankc_w current_idx_0" >
+			<h2>실시간 급상승 검색어</h2>
+			<!-- 내용추가 -->
+			<div id="rankc_inner"></div>
+		</div>
 	</div>
 
-	<div class="capture_image_figure">
-		<p><img src="./rankpop.png" alt=""></p>
-		<p class="figcaption">그림2. MOUSE over 했을 때의 상태</p>
-	</div>
 
-	<p># ranklist Object는 소스코드보기를 통해서 확인..</p>
+	<div id="log"></div>
+
+
+
+	
 	<script>
-		var ranklist = [
-			{
-				value: 1, 
-				keyword: '첫번째', 
-				state: 'NEW', 
-				rank: 0
-			}, 
-			{
-				value: 2, 
-				keyword: '두번째', 
-				state: 'UP', 
-				rank: 50
-			} 
+		/* Data */ 
+
+		var dataset_rankc = [
+			{value: 1, keyword: '첫번째', state: 'NEW', rank: 189, url:''}, 
+			{value: 2, keyword: '두번째', state: 'UP', rank: 117, url:''}, 
+			{value: 3, keyword: '세번째', state: 'UP', rank: 486, url:''}, 
+			{value: 4, keyword: '네번째', state: 'UP', rank: 204, url:''}, 
+			{value: 5, keyword: '다섯번째', state: 'DOWN', rank: 129, url:''}, 
+			{value: 6, keyword: '여섯번째', state: 'UP', rank: 69, url:''}, 
+			{value: 7, keyword: '일곱번째', state: 'UP', rank: 117, url:''}, 
+			{value: 8, keyword: '여덟번째', state: 'UP', rank: 66, url:''}, 
+			{value: 9, keyword: '아홉번째', state: 'UP', rank: 81, url:''}, 
+			{value: 10, keyword: '열번째', state: 'UP', rank: 69, url:''}
 		];
+
+
+
+
+
+
+
+		/* Templating */
+
+		var rankcObj = {
+			dummy: [],
+			text: '<li title="{value}"><a href="{url}"><span class="kw">{keyword}</span> <span class="rk">{rank}</span> <span class="{state} st">{state_text}</span></a></li>', 
+			setStateText: function(string) {
+				var txt; 
+
+				switch(string) {
+					case 'UP': 
+						txt = '상승'; 
+						break; 
+					case 'DOWN': 
+						txt = '하락';
+						break; 
+					case 'NEW':
+						txt = '진입';
+						break; 
+					default: 
+						break; 
+				}
+
+				return txt; 
+			}
+		};
+
+		rankcObj.dummy.push('<ol>');
+		for(var i = 0; i < dataset_rankc.length; i++) {
+			var x = dataset_rankc[i];
+			var y = rankcObj.text; 
+			y = y.replace("{value}", x.value)
+				.replace("{url}", x.url)
+				.replace("{keyword}", x.keyword)
+				.replace("{rank}", x.rank)
+				.replace("{state}", x.state)
+				.replace("{state_text}", rankcObj.setStateText(x.state));
+
+			rankcObj.dummy.push(y);
+		}
+		rankcObj.dummy.push('</ol>');
+
+
+
+
+
+
+
+		/* DOMScript */
+
+		var doc = document; 
+		var rankc = doc.getElementById('rankc');
+		var rankc_div = rankc.getElementsByTagName('DIV')[0];
+		var rankc_inner = doc.getElementById('rankc_inner');
+		var rankc_list = rankc.getElementsByTagName('LI');
+		var interval_rankc;
+		var rankc_limited = 10; 
+		var current_rank = 0;
+
+		rankc.onmouseover = function() {
+			rankc_list[current_rank].className = 'on'; 
+			this.className = 'rankc rankpop'; 
+			clearInterval(interval_rankc); 
+		};
+
+		rankc.onmouseout = function() {
+			rankc_list[current_rank].className = ''; 
+			this.className = 'rankc ranklist'; 
+			interval_rankc = setInterval(function() {
+				rankc_util.setInterv(); 
+			}, 1000); 
+		};
+
+		var rankc_util = {
+			setInterv: function() {
+				rankc_div.className = 'rankc_w current_idx_' + (++current_rank);
+
+				if(current_rank === rankc_limited) {
+					current_rank = 0; 
+				}
+
+				this.setRwd(); 	
+			}, 
+			setRwd: function() {
+				if(document.width <= 400) {
+					rwd = 'Small'; 
+				} else {
+					rwd = 'Big'; 
+				}
+
+				if(log.innerHTML === rwd) { return false; }
+				if(body.className.indexOf('screen_') > -1) { bodyClassName.pop(); }
+
+				log.innerHTML = rwd;
+				bodyClassName.push('screen_'+rwd);
+				body.className = bodyClassName.join(' '); 
+			}
+		};
+
+
+
+
+
+
+
+
+
+
+		/* Log / Monitoring / RWD */
+
+		var log = doc.getElementById('log');
+		var body = doc.getElementsByTagName('BODY')[0];
+		var bodyClassName = body.className.split(' '); 
+		var rwd;
+
+		setTimeout(function() { rankc_util.setRwd(); }, 100); 
+
+
+
+
+
+
+
+
+		/* Init */
+
+		interval_rankc = setInterval(function() {
+			rankc_util.setInterv(); 
+		}, 1000); 
+
+		rankc_inner.innerHTML = rankcObj.dummy.join(''); 
+
+
+
+
 	</script>
 
 	

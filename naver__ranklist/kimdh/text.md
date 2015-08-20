@@ -24,7 +24,8 @@ rankpop -> 마우스가 over 되었을 때 1부터 10까지 모두 표시하는 
 	rank: {
 		value: 1, 
 		keyword: '검색어', 
-		state: 'NEW/UP/DOWN', 
+		state: 'NEW/UP/DOWN',  
+		/* 새로진입/상승/하락 */
 		rank: 75
 	}
 }

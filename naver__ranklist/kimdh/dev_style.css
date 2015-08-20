@@ -11,4 +11,98 @@
 	color: #333; 
 	letter-spacing: -1px;
 	background-color: #eee;
+} 
+
+@media screen and (min-width: 401px) {
+	.rankc { width: 200px; }
 }
+.rankc h2 { 
+	margin: 0; 
+	font-size: 1em; 
+}
+.rankc ol { 
+	margin: 0; 
+	padding: 0; 
+	list-style: none; 
+}
+.rankc li { 
+	display: block; 
+	margin: 0; 
+	padding: 0; 
+}
+.rankc a { 
+	position: relative;
+	display: block; 
+	color: #222;
+	text-decoration: none; 
+}
+.rankc .rk { 
+	position: absolute; 
+	top: 0; 
+	right: 1em; 
+}
+.rankc .st {
+	position: absolute;
+	top: 0;
+	right: 3.5em; 
+}
+
+
+
+
+.ranklist { 
+	position: relative;
+	height: 31px; 
+	background-color: #23b300; 
+	overflow: hidden; 
+}
+.ranklist h2 { display: none; }
+/*.ranklist li { display: none; }*/
+/*.ranklist li.on { display: block; }*/
+.ranklist a { 
+	padding: .5em 1em;
+	color: #fff; 
+}
+.ranklist .rankc_w {
+	position: absolute;
+	top: 0; 
+	left: 0; 
+	width: 100%;
+	font-size: 31px; 
+}
+.ranklist .rankc_w a { font-size: 12px; }
+.ranklist .current_idx_1 { top: -1em; }
+.ranklist .current_idx_2 { top: -2em; }
+.ranklist .current_idx_3 { top: -3em; }
+.ranklist .current_idx_4 { top: -4em; }
+.ranklist .current_idx_5 { top: -5em; }
+.ranklist .current_idx_6 { top: -6em; }
+.ranklist .current_idx_7 { top: -7em; }
+.ranklist .current_idx_8 { top: -8em; }
+.ranklist .current_idx_9 { top: -9em; }
+.ranklist .rk, 
+.ranklist .st { line-height: 31px; }
+
+
+
+
+
+
+
+.rankpop { 
+	padding: 1em; 
+	border: 1px solid #23b300; 
+}
+.rankpop h2 { margin-bottom: 1em; }
+.rankpop a {
+	line-height: 1.5;
+}
+.rankpop .on .kw { font-weight: bold; }
+.rankpop a:hover .kw { text-decoration: underline; }
+.rankpop .rk { right: 0; }
+.rankpop .st { right: 3em; }
+
+
+
+
+
