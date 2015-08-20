@@ -46,7 +46,9 @@
 	top: 0;
 	right: 3.5em; 
 }
-
+.rankc .NEW { color: red; }
+.rankc .UP { color: red; }
+.rankc .DOWN { color: blue; }
 
 
 
