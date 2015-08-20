@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>'실시간 금상승 검색어' 시작페이지</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="noindex">
+	<meta name="googlebot" content="noindex">
+	<style>
+		/* 전체 도메인 기본 스타일 */
+		/* naver_ranklist_index = nridx */
+		.nridx {
+			font-size: 12px; 
+			font-family: '돋움', '맑은 고딕', verdana; 
+			color: #333; 
+			line-height: 1.6; 
+			-webkit-text-size-adjust: 100%;
+		}
+
+		@media screen and (max-width: 400px) {}
+
+	</style>
+	<link rel="stylesheet" href="./dev_style.css">
+</head>
+<body class="naver_ranklist_index nridx">
+
+	<h1 class="docu_title">'실시간 금상승 검색어' UIC 분석하고 이해하기</h1>
+	<hr>
+
+
+
+
+	<div id="rankc" class="rankc ranklist">
+		<div class="rankc_w current_idx_0" >
+			<h2>실시간 급상승 검색어</h2>
+			<!-- 내용추가 -->
+			<div id="rankc_inner"></div>
+		</div>
+	</div>
+
+
+	<div id="log"></div>
+
+
+
+	
+	<script src="./script.js"></script>
+</body>
+</html>
