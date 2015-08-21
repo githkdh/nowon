@@ -5,7 +5,7 @@
 2. tab on/off 구분
 3. icon - background img 사용
 4. 사이즈 고정
-5. tab content 출력 형식 상이
+5. **tab content 출력 형식 상이**
 	* 라이프 - 갤러리 + 영상
 	* 스포츠 - 갤러리 + 영상, 하단 기사
 	* 차/테크 - 갤러리
@@ -18,4 +18,21 @@
 	* 네이버캐스트 - 갤러리 + 기사
 	* 오픈캐스트 - 카테고리 (페이징) + 구독 캐스트 4줄까지 출력력
 	* 공익/나눔 - 갤러리 + 기사
+6. hover시 text색상, underline 변경
+	
+---
 
+## MarkUp, css 규칙
+1. 전체 컨텐츠가 들어가는 부분 : section
+2. tab 메뉴 컨텐츠 구분 - 리스트
+3. box size
+	* single_1:1
+	* colduo_2:1
+	* promote_2:2
+	* lineduo_1:2
+
+
+
+
+
+	
