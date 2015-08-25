@@ -7,10 +7,40 @@ ul li {list-style: none;}
 i, em {font-style:normal;}
 span {white-space: nowrap; text-overflow: ellipsis;word-wrap: normal;}
 
-ul.themeList {width: 100%; margin:0; padding:0;}
-ul.themeList li {float: left; width: 54px;height: 40px;}
-ul.themeList li a {display: block; width: 54px; height: 40px; background-color: #999; border:1px solid #888; font-size:11px; text-align: center;}
-ul.themeList li a:hover {background-color: #000; color: #fff;}
+div.themeList {position:relative; width:635px; height:46px;margin:0; padding:0; overflow: hidden;margin-left: -1px;background: url(http://img.naver.net/static/www/img/sp_mn150818.png) no-repeat 0 -317px;zoom: 1;}
+div.themeList span {float: left; }
+div.themeList span.tcc_lif {width:54px;}
+div.themeList span.tcc_spo {width:50px;}
+div.themeList span.tcc_aut {width:53px;}
+div.themeList span.tcc_web{width:43px;}
+div.themeList span.tcc_gam {width:45px;}
+div.themeList span.tcc_tvc {width:61px;}
+div.themeList span.tcc_muc {width:45px;}
+div.themeList span.tcc_mov {width:44px;}
+div.themeList span.tcc_bok {width:50px;}
+div.themeList span.tcc_ncc {width:71px;}
+div.themeList span.tcc_occ {width:62px;}
+div.themeList span.tcc_pub {width:57px;}
+
+div.themeList span a.active {background: url(http://img.naver.net/static/www/img/sp_mn150818.png) no-repeat}
+div.themeList span.tcc_lif .active {background-position:0 -369px;}
+div.themeList span.tcc_spo .active{background-position:-54px -369px;}
+div.themeList span.tcc_aut .active{background-position:-104px -369px;}
+div.themeList span.tcc_web .active{background-position:-157px -369px;}
+div.themeList span.tcc_gam .active{background-position:-200px -369px;}
+div.themeList span.tcc_tvc .active{background-position:-245px -369px;}
+div.themeList span.tcc_muc .active{background-position:-306px -369px;}
+div.themeList span.tcc_mov .active{background-position:-351px -369px;}
+div.themeList span.tcc_bok .active{background-position:-395px -369px;}
+div.themeList span.tcc_ncc .active{background-position:-445px -369px;}
+div.themeList span.tcc_occ .active{background-position:-516px -369px;}
+div.themeList span.tcc_pub .active{background-position:-578 -369px;}
+
+div.themeList span a {display: block; height:46px;  font-size:0px; text-align: center;}
+/*div.themeList span a:hover {background-color: #000; color: #fff;}*/
 .themeCon {display: none; clear: both; border:1px solid #333; padding: 30px; width: 50%;}
 
-.active {background-color: #556677; color: red;}
+/*.active {background-color: #556677; }*/
+
+
+

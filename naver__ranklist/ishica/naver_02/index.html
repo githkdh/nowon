@@ -13,20 +13,20 @@
 
 <section id="themeCast">
 <div class="wrapper">
-    <ul class="themeList">
-        <li><a href="#">라이프</a></li>
-        <li><a href="#">스포츠</a></li>
-        <li><a href="#">차/테크</a></li>
-        <li><a href="#">웹툰</a></li>
-        <li><a href="#">게임</a></li>
-        <li><a href="#">TV/동영상</a></li>
-        <li><a href="#">뮤직</a></li>
-        <li><a href="#">영화</a></li>
-        <li><a href="#">책/공연</a></li>
-        <li><a href="#">네이버캐스트</a></li>
-        <li><a href="#">오픈캐스트</a></li>
-        <li><a href="#">공익/나눔</a></li>
-    </ul>
+    <div class="themeList">
+        <span class="tcc_lif"><a href="#">라이프</a></span>
+        <span class="tcc_spo"><a href="#">스포츠</a></span>
+        <span class="tcc_aut"><a href="#">차/테크</a></span>
+        <span class="tcc_web"><a href="#">웹툰</a></span>
+        <span class="tcc_gam"><a href="#">게임</a></span>
+        <span class="tcc_tvc"><a href="#">TV/동영상</a></span>
+        <span class="tcc_muc"><a href="#">뮤직</a></span>
+        <span class="tcc_mov"><a href="#">영화</a></span>
+        <span class="tcc_bok"><a href="#">책/공연</a></span>
+        <span class="tcc_ncc"><a href="#">네이버캐스트</a></span>
+        <span class="tcc_occ"><a href="#">오픈캐스트</a></span>
+        <span class="tcc_pub"><a href="#">공익/나눔</a></span>
+    </div>
     <div class="themeCon t1">
              라이프
     </div>
@@ -81,16 +81,16 @@
 
 </section>
 <script type="text/javascript">
-$('.themeCon:first').show();//첫번째 탭 보임
+$('div.themeCon:first').show();//첫번째 탭 보임
 //첫번째 탭이 선택된 모양 - 생략^^
 
-$('.themeList li a').on('click',function(){
+$('.themeList span a').on('click',function(){
   //alert('');
     index = $(this).parent().index() + 1;
-    $('.themeList li a').css('background-color','#999').removeClass('active')
+    $('.themeList span a').css('','').removeClass('active')
     $('.themeCon').hide();
     $('.t'+ index).fadeIn(0);
-    $(this).css('background-color','#000').addClass('active');
+    $(this).css('','').addClass('active');
 });
 
 </script>
