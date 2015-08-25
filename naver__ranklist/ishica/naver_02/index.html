@@ -1,0 +1,99 @@
+<DOCTYPE html>
+<html lang="ko">
+<title>themeTab</title>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="noindex">
+	<meta name="googlebot" content="noindex">
+	<link rel="stylesheet" href="style.css">
+	<script src="tabList.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+
+<section id="themeCast">
+<div class="wrapper">
+    <ul class="themeList">
+        <li><a href="#">라이프</a></li>
+        <li><a href="#">스포츠</a></li>
+        <li><a href="#">차/테크</a></li>
+        <li><a href="#">웹툰</a></li>
+        <li><a href="#">게임</a></li>
+        <li><a href="#">TV/동영상</a></li>
+        <li><a href="#">뮤직</a></li>
+        <li><a href="#">영화</a></li>
+        <li><a href="#">책/공연</a></li>
+        <li><a href="#">네이버캐스트</a></li>
+        <li><a href="#">오픈캐스트</a></li>
+        <li><a href="#">공익/나눔</a></li>
+    </ul>
+    <div class="themeCon t1">
+             라이프
+    </div>
+
+    <div class="themeCon t2">
+            스포츠
+    </div>
+
+    <div class="themeCon t3">
+          차/테크
+    </div>
+
+    <div class="themeCon t4">
+          웹툰
+    </div>
+
+    <div class="themeCon t5">
+          게임
+    </div>
+
+    <div class="themeCon t6">
+          TV/동영상
+    </div>
+
+    <div class="themeCon t7">
+         뮤직
+    </div>
+
+    <div class="themeCon t8">
+          영화
+    </div>
+
+    <div class="themeCon t9">
+          책/공연
+    </div>
+
+    <div class="themeCon t10">
+          네이버캐스트
+    </div>
+
+    <div class="themeCon t11">
+          오픈캐스트
+    </div>
+
+    <div class="themeCon t12">
+          공익/나눔
+    </div>
+
+</div><!--wrapper-->
+
+
+
+</section>
+<script type="text/javascript">
+$('.themeCon:first').show();//첫번째 탭 보임
+//첫번째 탭이 선택된 모양 - 생략^^
+
+$('.themeList li a').on('click',function(){
+  //alert('');
+    index = $(this).parent().index() + 1;
+    $('.themeList li a').css('background-color','#999').removeClass('active')
+    $('.themeCon').hide();
+    $('.t'+ index).fadeIn(0);
+    $(this).css('background-color','#000').addClass('active');
+});
+
+</script>
+
+</body>
+</html>
