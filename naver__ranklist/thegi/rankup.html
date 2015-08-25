@@ -32,8 +32,8 @@
 		position:relative; 
 		margin-top: 0; margin-left:16px; padding:0;
 		background:url(http://img.naver.net/static/www/img/sp_main150211.png) no-repeat -421px -18px;
-		transition-property : margin-top; -webkit-transition-property : margin-top;
-		transition-duration : 0.2s; -webkit-transition-duration : 0.2s;
+		transition-property : margin-top; -webkit-transition-property : margin-top; -moz-transition-property : margin-top; -o-transition-property : margin-top;
+		transition-duration : 0.2s; -webkit-transition-duration : 0.2s; -moz-transition-duration : 0.2s; -o-transition-duration : 0.2s;
 	}
 	.rank-item {
 		position:relative;
@@ -96,6 +96,9 @@
 	.rank-show .dn .rank-icon {background-position:-82px -121px;}
 	.rank-show .rank-val {right: 16px;}
 
+	/* lastrank */
+	.lastrank {display: none;}
+
 	/* description */
 	.description {display: none; margin-top:50px; padding-top:0; border-top:solid 1px #ccc; font-size:14px; line-height:35.2px;}
 	.description h3 {margin:40px 0 5px;}
@@ -122,7 +125,7 @@
 			<div class="rank-cnts rank-srch">
 				<h3 class="rank-title">실시간 급상승 검색어</h3>
 				<ol class="rank-lst rank-lst-srch">
-					<!-- <li id="lastrank" value="1" class="up"><a href="#href" class="rank-a">이괄의 난<span class="tx">상승</span><span class="ic"></span><span class="rk">243</span></a></li> -->
+					<li class="rank-item lastrank"><a href="#href" class="rank-a"><span class="rank-icon"></span><span class="rank-val"></span></a></li>
 				</ol>
 				<noscript>
 					<select name="rank" id="rank">
@@ -294,10 +297,15 @@
 					if(Modernizr.csstransitions) {
 						rankSrchList.style.transitionProperty = '';
 						rankSrchList.style.webkitTransitionProperty = '';
+						rankSrchList.style.MozTransitionProperty = '';
+						rankSrchList.style.OTransitionProperty = '';
 					} else { // lt ie9
 					}
 					rankSrchList.style.marginTop = '-' + h*idx + 'px' ;
-					idx = (idx == len-1) ? 0 : idx+1;					
+					idx = (idx == len-1) ? 0 : idx+1;
+					/*if(idx == len-1) {
+						rankSrch.querySelectorAll('.lastrank')[0].style.display = 'block';
+					}*/
 				}, intervalTime);
 			}
 			var rankAll = function(){
@@ -310,6 +318,8 @@
 				if(Modernizr.csstransitions) {
 					rankSrchList.style.transitionProperty = 'none';
 					rankSrchList.style.webkitTransitionProperty = 'none';
+					rankSrchList.style.MozTransitionProperty = 'none';
+					rankSrchList.style.OTransitionProperty = 'none';
 				} else { // lt ie9
 				}
 				UTIL.removeClass(rankSrchList.querySelectorAll('.'+cnRankItem)[idx-1], cnActive);
@@ -318,14 +328,15 @@
 			}
 			
 			// 이벤트
-			rankSrch.onmouseover = function(){	
+			rankSrch.onmouseover = function(){					
 				rankAll();
 			}
 			rankSrch.onmouseout = function(){
 				rankSimply();
 			}
 			// ie9, ie10, chrome, opera, safari (not in ie8, firefox)
-			rankSrch.addEventListener('focusin', function(){
+			rankSrch.addEventListener('focusin', function(e){
+				
 				rankAll();
 			});
 			rankSrch.addEventListener('focusout', function(){ 
