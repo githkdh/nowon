@@ -17,14 +17,12 @@
 ## Events
 
 1. Mouse Event
-	- 마우스가 들어오면 : ~~~##함수-1~~~
-	- 전체 목록에서 마우스 아웃 : ~~~##함수-2~~~
+	- 마우스가 들어오면 : 3.Common Action-1
+	- 전체 목록에서 마우스 아웃 : 3.Common Action-2
 2. Key Event
-	- Key Focus가 들어오면 : ~~~##함수-1~~~
-	- Key Focus가 나가면 : ~~~##함수-2~~~
-
-## 함수 
-
+	- Key Focus가 들어오면 : 3.Common Action-1
+	- Key Focus가 나가면 : 3.Common Action-2
+3. Common Action
 	1. 보여주던 목록 정보는 bold 적용, 1위~10위의 모든 정보를 보여준다. 롤링 애니메이션은 중지
 	2. bold인 목록 정보만 원래의 gui로 보여주고 나머지는 감춘다. 롤링 애니메이션 Play.	
 
