@@ -1,11 +1,12 @@
-# 러프 분석
 ## front 화면 분석
 
 1. tab 10개 (고정)
-2. tab on/off 구분
+2. tab on/off 구분 (class="active" / show, hide)
 3. icon - background img 사용
-4. 사이즈 고정
-5. **tab content 출력 형식 상이**
+4. 첫 번째 탭 자동 선택
+5. 새로고침 시 현재 보고 있는 탭 선택 (첫 번째 탭 디폴트X)
+6. 사이즈 고정
+7. **tab content 출력 형식 상이**
 	* 라이프 - 갤러리 + 영상
 	* 스포츠 - 갤러리 + 영상, 하단 기사
 	* 차/테크 - 갤러리
@@ -18,7 +19,7 @@
 	* 네이버캐스트 - 갤러리 + 기사
 	* 오픈캐스트 - 카테고리 (페이징) + 구독 캐스트 4줄까지 출력
 	* 공익/나눔 - 갤러리 + 기사
-6. hover시 text색상, underline 변경
+8. 컨텐츠 hover시 text색상, underline 변경
 	
 ---
 
@@ -31,7 +32,7 @@
 	* promote_2:2
 	* lineduo_1:2
 4. tab icon - 스프라이트 이미지 사용
-5. tab size - 54*45
+5. tab size - 탭별 상이
 
 
 
