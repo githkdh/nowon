@@ -19,20 +19,20 @@
 ## Events
 
 1. Load
-	- Common Action> Tab Active, Content Show
+	- [Tab Active], [Content Show]
 2. Key Focus In
-	- 활성화 되어 있던 Tab Menu : Common Action> Tab UnActive
-	- Fouse된 Tab :  Common Action> Tab Active
-3. Mouse Click & Key Enter 
-	- 활성화 되어 있던 Tab Menu : Common Action> Tab UnActive
-	- 보여지고 있던 Content : Common Action> Content Hide 
-	- Click한 Tab :  Common Action> Tab Active
-	- Click한 Tab의 Content :  Common Action> Content Show
+	- 활성화 되어 있던 Tab Menu : [Tab UnActive]
+	- Fouse된 Tab :  [Tab Active]
+3. Mouse Click or Key Enter 
+	- 활성화 되어 있던 Tab Menu : [Tab UnActive]
+	- 보여지고 있던 Content : [Content Hide ]
+	- Click한 Tab :  [Tab Active]
+	- Click한 Tab의 Content :  [Content Show]
 4. Common Action
-	- Tab Active : Tab 활성화
-	- Tab UnActive : Tab 비활성화
-	- Content Show : 특정 Tab 컨텐츠 Show
-	- Content Hide : 특정 Tab 컨텐츠 Hide
+	- [Tab Active] : Tab 활성화
+	- [Tab UnActive] : Tab 비활성화
+	- [Content Show] : 특정 Tab 컨텐츠 Show
+	- [Content Hide] : 특정 Tab 컨텐츠 Hide
 
 ## 과제 및 질문
 
