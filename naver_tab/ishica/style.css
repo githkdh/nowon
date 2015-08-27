@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+body {margin:0; padding:0; font-family: 돋움, Dotum, Helvetica, 'Apple SD Gothic Neo', sans-serif;}
+a {text-decoration: none; }
+ul {margin:0; padding:0;}
+ul li {list-style: none;}
+i, em {font-style:normal;}
+span {white-space: nowrap; text-overflow: ellipsis;word-wrap: normal;}
+
+#themeCast{margin:50px;}
+.wapper {position:relative; width:635px; height:778px;border:1px solid #d6d6d6; }
+.wapper:after {content:""; display:block; clear:both}
+
+.wapper > h3{float:left; height:45px;font-size: 0px;  margin:0; overflow:hidden;}
+h3[class^=themeTit-] a {display:block; height:44px;background:#f3f3f5 url("icon_tit.png");border-bottom:1px solid #d6d6d6; }
+h3.themeTit-lif a {width:54px; background-position: -1px 0;}
+h3.themeTit-spo a {width:50px;  background-position: -54px 0}
+h3.themeTit-aut a {width:53px; background-position:-107px 0;}
+h3.themeTit-web a {width:43px; background-position:-156px 0;}
+h3.themeTit-gam a {width:45px; background-position:-201px 0;}
+h3.themeTit-tvc a {width:61px; background-position:-245px 0;}
+h3.themeTit-muc a {width:45px; background-position:-306px 0;}
+h3.themeTit-mov a {width:44px; background-position:-351px 0;}
+h3.themeTit-bok a {width:50px; background-position:-401px 0;}
+h3.themeTit-ncc a {width:71px; background-position:-451px 0;}
+h3.themeTit-occ a {width:62px; background-position:-522px 0;}
+h3.themeTit-pub a {width:57px; background-position:-584px 0;}
+
+h3[class^=themeTit-].on a {border-bottom:1px solid #fff; }
+h3.themeTit-lif.on a {width:54px; background-position: -1px -54px; margin-left:-1px;}
+h3.themeTit-spo.on a {width:50px;  background-position: -54px -54px}
+h3.themeTit-aut.on a {width:53px; background-position:-107px -54px;}
+h3.themeTit-web.on a {width:43px; background-position:-156px -54px;}
+h3.themeTit-gam.on a {width:45px; background-position:-201px -54px;}
+h3.themeTit-tvc.on a {width:61px; background-position:-245px -54px; }
+h3.themeTit-muc.on a {width:45px; background-position:-306px -54px;}
+h3.themeTit-mov.on a {width:44px; background-position:-351px -54px;}
+h3.themeTit-bok.on a {width:50px; background-position:-401px -54px;}
+h3.themeTit-ncc.on a {width:71px; background-position:-451px -54px;}
+h3.themeTit-occ.on a {width:62px; background-position:-522px -54px;}
+h3.themeTit-pub.on a {width:57px; background-position:-584px -54px;}
+
+
+.themeCon {display:none; position:absolute; width:633px; height:732px; top:45px; left:0px; }
+.themeCon:after{content:""; display:block; clear:both}
+
+div.on {display: block; }

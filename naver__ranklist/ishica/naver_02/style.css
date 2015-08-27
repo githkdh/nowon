@@ -38,11 +38,12 @@ div.themeList span.tcc_occ .active{background-position:-516px -368px;}
 div.themeList span.tcc_pub .active{background-position:-578px -368px;}
 
 div.themeList span a {display: block; height:46px;  font-size:0px; text-align: center; border-bottom:1px solid #fff;}
-/*div.themeList span a:hover {background-color: #000; color: #fff;}*/
+div.themeList span a:hover {background-color: #000; color: #fff;}
 .themeOutline {width:634px; height:732px;  border:1px solid #d6d6d6;}
 .themeCon {display: none; clear: both; }
 
-/*.active {background-color: #556677; }*/
+/*.active {background-color: #556677; }
 
 
 
+*/
