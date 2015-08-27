@@ -9,18 +9,16 @@
 <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]--> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 <style type="text/css">
-	body {font-family: Dotum,'돋움',Helvetica,AppleSDGothicNeo,sans-serif;}
+	* {margin: 0; padding: 0;}
+	body {font-family: Dotum,'돋움',Helvetica,AppleSDGothicNeo,sans-serif; font-size: 12px;}
 	a {text-decoration:none;}
 	a:hover {text-decoration:underline;}
-	h3 {margin: 0; padding:0;}
-	li {list-style: none; margin: 0; padding: 0;}
+	li {list-style: none;}
 	.blind {overflow:hidden;position:absolute;width:0;height:0;line-height:0;text-indent:-9999px;}
 	#wrapper {margin:30px;}
 	#wrapper > a {color:#999;}
-
-	.tab-container {overflow: hidden; position: relative; width: 633px; height: 730px; border: 1px solid #d6d6d6;}
-	.tab-nav {float: left; border-bottom: solid 1px #d6d6d6;}
-		.tab-nav.active {border-bottom: none;}	
+	.tab-container {overflow-y: auto; position: relative; width: 633px; height: 730px; border: 1px solid #d6d6d6;}
+	.tab-nav {background-color: #f3f3f5;}
 	.tab-nav-a {display: block; height: 45px;background-image: url(nav.gif);}
 		.tab-nav-life .tab-nav-a {width: 53px; background-position: -1px 0;}
 		.tab-nav-sports .tab-nav-a {width: 50px; background-position: -54px 0;}
@@ -33,25 +31,43 @@
 		.tab-nav-book .tab-nav-a {width: 50px; background-position: -395px 0;}
 		.tab-nav-naver .tab-nav-a {width: 71px; background-position: -445px 0;}
 		.tab-nav-open .tab-nav-a {width: 62px; background-position: -516px 0;}
-		.tab-nav-public .tab-nav-a {width: 56px; background-position: -578px 0;}
+		.tab-nav-public .tab-nav-a {width: 56px; background-position: -578px 0;}		
+	.tab-cnts {margin:9px 8px 22px 21px;}
+	.lst-thumb {overflow: hidden;}
+	.item {overflow: hidden; position: relative; float: left; width: 138px; height: 149px; margin-top: 13px; margin-right: 13px;}
+	.item-a {display: block;}
+	.area-thumb {display: block; width: 100%; height: 82px;}	
+	.img-thumb {width: 100%;}
+	.icon-play {position: absolute; top:57px; left: 6px; width: 19px; height: 19px; background: url(icon-play.png) no-repeat; text-indent: -10000px;}
+	.title-lst, 
+	.stxt-lst {border-left:1px solid #ececec; border-right:1px solid #ececec; background-color: #fbfbfb;}
+	.title-lst {overflow: hidden; height: 30px; padding: 8px 9px 0; line-height: 15px; font-weight: bold; color: #616161;}
+		.item-a:hover .title-lst {color: #339900;}
+	.stxt-lst {overflow: hidden; height: 18px; padding: 4px 9px 6px; border-bottom:1px solid #ececec; font-size: 11px; color:#999; white-space: nowrap; text-overflow:ellipsis;}	
+	.item-promotion {position: relative; width: 289px;}
+	.item-promotion .area-thumb {height: 100%;}
+	.item-promotion .title-lst {position: absolute; bottom: 0; height: auto; margin-bottom: 10px; border: none; background-color: transparent; font-size: 14px; color: #fff !important; white-space: nowrap; text-overflow:ellipsis;}
+		.item-promotion .item-a:hover .title-lst {text-decoration: underline;}
+	.item-promotion .stxt-lst {position: absolute; bottom: 20px; border: none; background-color: transparent; color: #fff !important; opacity: 0.9;}
 
-		.active.tab-nav-life .tab-nav-a {background-position: -1px -52px;}
-		.active.tab-nav-sports .tab-nav-a {background-position: -54px -52px;}
-		.active.tab-nav-car .tab-nav-a {background-position: -104px -52px;}
-		.active.tab-nav-webtoon .tab-nav-a {background-position: -157px -52px;}
-		.active.tab-nav-game .tab-nav-a {background-position: -200px -52px;}
-		.active.tab-nav-tv .tab-nav-a {background-position: -245px -52px;}
-		.active.tab-nav-music .tab-nav-a {background-position: -306px -52px;}
-		.active.tab-nav-moive .tab-nav-a {background-position: -351px -52px;}
-		.active.tab-nav-book .tab-nav-a {background-position: -395px -52px;}
-		.active.tab-nav-naver .tab-nav-a {background-position: -445px -52px;}
-		.active.tab-nav-open .tab-nav-a {background-position: -516px -52px;}
-		.active.tab-nav-public .tab-nav-a {background-position: -578px -52px;}
-	.tab-cnts {position: absolute; top: 45px;}
-
+	.js .tab-container {overflow: hidden;}
+	.js .tab-nav {float: left; border-bottom: solid 1px #d6d6d6;}
+		.js .tab-nav.active {border-bottom: none;}	
+	.js .active.tab-nav-life .tab-nav-a {background-position: -1px -52px;}
+	.js .active.tab-nav-sports .tab-nav-a {background-position: -54px -52px;}
+	.js .active.tab-nav-car .tab-nav-a {background-position: -104px -52px;}
+	.js .active.tab-nav-webtoon .tab-nav-a {background-position: -157px -52px;}
+	.js .active.tab-nav-game .tab-nav-a {background-position: -200px -52px;}
+	.js .active.tab-nav-tv .tab-nav-a {background-position: -245px -52px;}
+	.js .active.tab-nav-music .tab-nav-a {background-position: -306px -52px;}
+	.js .active.tab-nav-moive .tab-nav-a {background-position: -351px -52px;}
+	.js .active.tab-nav-book .tab-nav-a {background-position: -395px -52px;}
+	.js .active.tab-nav-naver .tab-nav-a {background-position: -445px -52px;}
+	.js .active.tab-nav-open .tab-nav-a {background-position: -516px -52px;}
+	.js .active.tab-nav-public .tab-nav-a {background-position: -578px -52px;}
+	.js .tab-cnts {position: absolute; top: 45px; left: 0; right: 0;}
 	.js .tab-cnts {display: none;}
-	.js .tab-nav.active + .tab-cnts {display: block;}
-	
+	.js .tab-nav.active + .tab-cnts {display: block;}	
 </style>
 </head>
 <body>
@@ -61,64 +77,98 @@
 	<h2 class="blind">네이버 주제형 캐스트</h2>
 	<section class="tab-container">
 		<h3 class="tab-nav tab-nav-life"><a href="#href" class="tab-nav-a"><span class="blind">라이프</span></a></h3>
-		<ul class="tab-cnts">라이프 컨텐츠</ul>	
+		<div class="tab-cnts">라이프 컨텐츠</div>	
 
 		<h3 class="tab-nav tab-nav-sports"><a href="#href" class="tab-nav-a"><span class="blind">스포츠</span></a></h3>
-		<ul class="tab-cnts">스포츠 컨텐츠</ul>
+		<div class="tab-cnts">스포츠 컨텐츠</div>
 
 		<h3 class="tab-nav tab-nav-car"><a href="#href" class="tab-nav-a"><span class="blind">차/테크</span></a></h3>
-		<ul class="tab-cnts">차/테크 컨텐츠</ul>
+		<div class="tab-cnts">차/테크 컨텐츠</div>
 
 		<h3 class="tab-nav tab-nav-webtoon"><a href="#href" class="tab-nav-a"><span class="blind">웹툰</span></a></h3>
-		<ul class="tab-cnts">웹툰 컨텐츠</ul>
+		<div class="tab-cnts">웹툰 컨텐츠</div>
 
 		<h3 class="tab-nav tab-nav-game"><a href="#href" class="tab-nav-a"><span class="blind">게임</span></a></h3>
-		<ul class="tab-cnts">게임 컨텐츠</ul>
+		<div class="tab-cnts">게임 컨텐츠</div>
 
 		<h3 class="tab-nav tab-nav-tv"><a href="#href" class="tab-nav-a"><span class="blind">TV/동영상</span></a></h3>
-		<ul class="tab-cnts">TV/동영상 컨텐츠</ul>
+		<div class="tab-cnts">TV/동영상 컨텐츠</div>
 
 		<h3 class="tab-nav tab-nav-music"><a href="#href" class="tab-nav-a"><span class="blind">뮤직</span></a></h3>
-		<ul class="tab-cnts">
-			<li class="item-tab item-promotion">
-				<a href="#href" class="item-a">
-					<span class="item-tab-thumb"><img src="http://img.naver.net/static/www/mobile/edit/2015/0825/mobile_204831544818.jpg" class="item-tab-thumb-img"></span> <!--  width="289" height="149" -->
-					<p class="icon-play">영상 <span class="blind">컨텐츠</span></p>
-					<p class="item-tab-t">이진아 X 박진영 '공항 가는 길' 티저공개</p>
-				</a>
-			</li>
-			<li class="item-tab">
-				<a href="#href" class="item-a">
-					<span class="item-tab-thumb"><img src="http://img.naver.net/static/www/mobile/edit/2015/0826/mobile_164832592901.JPG" class="tem-tab-thumb-img"></span> <!--  width="138" height="82"  -->
-					<p class="icon-play">영상 <span class="blind">컨텐츠</span></p>
-					<p class="item-tab-t">괜히 '서출구 서출구'하는 게 아니야</p>
-					<p class="item-tab-st">서출구 - 동네 + 새벽라디오</p>
-				</a>
-			</li>
-			<li class="item-tab">
-				<a href="#href" class="item-a">
-					<span class="item-tab-thumb"><img src="http://img.naver.net/static/www/mobile/edit/2015/0826/mobile_164832592901.JPG" class="tem-tab-thumb-img"></span> <!--  width="138" height="82"  -->
-					<p class="icon-play">영상 <span class="blind">컨텐츠</span></p>
-					<p class="item-tab-t">괜히 '서출구 서출구'하는 게 아니야</p>
-					<p class="item-tab-st">서출구 - 동네 + 새벽라디오</p>
-				</a>
-			</li>
-		</ul>
+		<div class="tab-cnts">
+			<ul class="lst-thumb">
+				<li class="item item-promotion">
+					<a href="#href" class="item-a">
+						<span class="area-thumb"><img src="http://img.naver.net/static/www/mobile/edit/2015/0826/mobile_16390134880.JPG" class='img-thumb'></span>
+						<p class="title-lst">메이저와 언더의 결합. 사이먼 도미닉 외</p>
+					</a>
+					<p class="stxt-lst">이주의 발견 - 국내 : 사이먼 도미닉</p>
+				</li>
+				<li class="item">
+					<a href="#href" class="item-a">
+						<span class="area-thumb"><img src="http://img.naver.net/static/www/mobile/edit/2015/0826/mobile_164832592901.JPG" class="img-thumb"></span>
+						<p class="icon-play">영상 <span class="blind">컨텐츠</span></p>
+						<p class="title-lst">괜히 '서출구 서출구'하는 게 아니야</p>
+					</a>
+					<p class="stxt-lst">서출구 - 동네 + 새벽라디오</p>
+				</li>
+				<li class="item">
+					<a href="#href" class="item-a">
+						<span class="area-thumb"><img src="http://img.naver.net/static/www/mobile/edit/2015/0826/mobile_164832592901.JPG" class="img-thumb"></span>
+						<p class="icon-play">영상 <span class="blind">컨텐츠</span></p>
+						<p class="title-lst">괜히 '서출구 서출구'하는 게 아니야</p>						
+					</a>
+					<p class="stxt-lst">서출구 - 동네 + 새벽라디오</p>
+				</li>
+				<li class="item">
+					<a href="#href" class="item-a">
+						<span class="area-thumb"><img src="http://img.naver.net/static/www/mobile/edit/2015/0826/mobile_164832592901.JPG" class="img-thumb"></span>
+						<p class="icon-play">영상 <span class="blind">컨텐츠</span></p>
+						<p class="title-lst">괜히 '서출구 서출구'하는 게 아니야</p>
+					</a>
+					<p class="stxt-lst">서출구 - 동네 + 새벽라디오</p>
+				</li>
+				<li class="item">
+					<a href="#href" class="item-a">
+						<span class="area-thumb"><img src="http://img.naver.net/static/www/mobile/edit/2015/0826/mobile_164832592901.JPG" class="img-thumb"></span>
+						<p class="icon-play">영상 <span class="blind">컨텐츠</span></p>
+						<p class="title-lst">괜히 '서출구 서출구'하는 게 아니야</p>						
+					</a>
+					<p class="stxt-lst">서출구 - 동네 + 새벽라디오</p>
+				</li>
+				<li class="item">
+					<a href="#href" class="item-a">
+						<span class="area-thumb"><img src="http://img.naver.net/static/www/mobile/edit/2015/0826/mobile_164832592901.JPG" class="img-thumb"></span>
+						<p class="icon-play">영상 <span class="blind">컨텐츠</span></p>
+						<p class="title-lst">괜히 '서출구 서출구'하는 게 아니야</p>
+					</a>
+					<p class="stxt-lst">서출구 - 동네 + 새벽라디오</p>
+				</li>
+				<li class="item">
+					<a href="#href" class="item-a">
+						<span class="area-thumb"><img src="http://img.naver.net/static/www/mobile/edit/2015/0826/mobile_164832592901.JPG" class="img-thumb"></span>
+						<p class="icon-play">영상 <span class="blind">컨텐츠</span></p>
+						<p class="title-lst">괜히 '서출구 서출구'하는 게 아니야</p>						
+					</a>
+					<p class="stxt-lst">서출구 - 동네 + 새벽라디오</p>
+				</li>
+			</ul>
+		</div>
 
 		<h3 class="tab-nav tab-nav-moive"><a href="#href" class="tab-nav-a"><span class="blind">영화</span></a></h3>
-		<ul class="tab-cnts">영화 컨텐츠</ul>
+		<div class="tab-cnts">영화 컨텐츠</div>
 
 		<h3 class="tab-nav tab-nav-book"><a href="#href" class="tab-nav-a"><span class="blind">책/공연</span></a></h3>
-		<ul class="tab-cnts">책/공연 컨텐츠</ul>
+		<div class="tab-cnts">책/공연 컨텐츠</div>
 
 		<h3 class="tab-nav tab-nav-naver"><a href="#href" class="tab-nav-a"><span class="blind">네이버캐스트</span></a></h3>
-		<ul class="tab-cnts">네이버캐스트 컨텐츠</ul>
+		<div class="tab-cnts">네이버캐스트 컨텐츠</div>
 
 		<h3 class="tab-nav tab-nav-open"><a href="#href" class="tab-nav-a"><span class="blind">오픈캐스트</span></a></h3>
-		<ul class="tab-cnts">오픈캐스트 컨텐츠</ul>
+		<div class="tab-cnts">오픈캐스트 컨텐츠</div>
 
 		<h3 class="tab-nav tab-nav-public"><a href="#href" class="tab-nav-a"><span class="blind">공익/나눔</span></a></h3>
-		<ul class="tab-cnts">공익/나눔 컨텐츠</ul>
+		<div class="tab-cnts">공익/나눔 컨텐츠</div>
 	</section>
 	
 </div>		
@@ -131,7 +181,8 @@
 		, tabCtrl : function(){
 			//선택자 선언
 			var doc = document,
-				tabNav = doc.querySelectorAll('.tab-container')[0];
+				tabCnts = doc.querySelectorAll('.tab-container')[0],
+				tabNavs = doc.querySelectorAll('.tab-nav-a');
 			
 			// 클래스명 
 			var cnActive = 'active';
@@ -142,7 +193,7 @@
 			// 함수
 			var init = function(){
 				if(focused) {
-					focused = doc.querySelectorAll('.tab-nav-'+ focused)[0]
+					focused = doc.querySelectorAll('.tab-nav-' + focused)[0];
 					tabActive(focused);
 				}
 			}
@@ -153,13 +204,22 @@
 				UTIL.removeClass(e, cnActive);
 			}
 			
-			// 이벤트			
-			doc.querySelectorAll('.tab-container')[0].onclick = function(e){
-				if(!UTIL.hasClass(e.target, 'tab-nav-a')) return;
+			// 이벤트	
+			for(var i=0; i<tabNavs.length; i++) {
+				tabNavs[i].onclick = function(){
+					if(!UTIL.hasClass(this, 'tab-nav-a')) return;
+					if(focused) tabUnActive(focused);
+					tabActive(this.parentNode);
+					focused = this.parentNode;
+				}
+			}				
+			/*tabCnts.onclick = function(e){
+				var target = e.srcElement || e.target;
+				if(!UTIL.hasClass(target, 'tab-nav-a')) return;
 				if(focused) tabUnActive(focused);
-				tabActive(e.target.parentNode);
-				focused = e.target.parentNode;
-			}
+				tabActive(target.parentNode);
+				focused = target.parentNode;
+			}*/
 			
 			init();
 		
