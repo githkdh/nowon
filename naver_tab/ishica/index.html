@@ -14,8 +14,8 @@
 <section id="themeCast">
 	<article>
 		<div class="wapper">
-			<h3 class="themeTit-lif on"><a href="#">라이프</a></h3>
-			<div class="themeCon on">라이프 내용</div>
+			<h3 class="themeTit-lif"><a href="#">라이프</a></h3>
+			<div class="themeCon">라이프 내용</div>
 
 			<h3 class="themeTit-spo"><a href="#">스포츠</a></h3>
 			<div class="themeCon">스포츠 내용</div>
@@ -48,11 +48,28 @@
 			<div class="themeCon">오픈캐스트 내용</div>
 
 			<h3 class="themeTit-pub"><a href="#">공익/나눔</a></h3>
-			<div class="themeCon">공익/나 눔내용</div>
+			<div class="themeCon">공익/나눔내용</div>
 		</div><!--wrapper-->
 	</article>
 </section>
+<script type="text/javascript">
+    $(function(){
+	    $('.themeTit-lif').addClass('on');
+	    $('.themeTit-lif+.themeCon').addClass('on');
+	    $("h3 a").click(function( event ){
+	        event.preventDefault();
+	        var o = $(this).parent();
+	        if(o.hasClass('on')){
+	            o.removeClass('on').find('themeCon').slideUp();
+	        }else{
+	        	$('h3[class^=themeTit-].on').removeClass('on').find('themeCon').slideUp();
+	            o.addClass('on').find('themeCon').slideDown();
+	        }
 
+	    });
+    });
+
+</script>
 
 
 </body>
