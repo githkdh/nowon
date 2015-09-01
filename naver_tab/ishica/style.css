@@ -7,10 +7,10 @@ ul li {list-style: none;}
 i, em {font-style:normal;}
 span {white-space: nowrap; text-overflow: ellipsis;word-wrap: normal;}
 
+/*layout*/
 #themeCast{margin:50px;}
 .wapper {position:relative; width:634px; height:778px;border:1px solid #d6d6d6; }
 .wapper:after {content:""; display:block; clear:both}
-
 .wapper > h3{float:left; height:45px;font-size: 0px;  margin:0; overflow:hidden;}
 h3[class^=themeTit-] a {display:block; height:44px; border-bottom:1px solid #d6d6d6;background:#f3f3f5 url("icon_tit.png");}
 h3.themeTit-lif a {width:53px; background-position: -1px 0; }
@@ -39,8 +39,25 @@ h3.themeTit-bok.on a {width:50px; background-position:-395px -52px;}
 h3.themeTit-ncc.on a {width:71px; background-position:-445px -52px;}
 h3.themeTit-occ.on a {width:62px; background-position:-516px -52px;}
 h3.themeTit-pub.on a {width:56px; background-position:-578px -52px;}
-
 .themeCon {display:none; position:absolute; width:633px; height:732px; top:45px; left:0px; }
 .themeCon:after{content:""; display:block; clear:both}
-
 div.on {display: block; }
+
+/*content box*/
+.conBox {font-size:12px;     min-height: 678px; padding: 9px 0 0 8px;border-bottom: 1px solid #eaeaea;}
+.conBox li {float:left; margin:13px 0 0 13px; }
+.conBox li, .conBox li a {display:block; position:relative; }
+.first {width:289px; height:149px; font-size:14px;}
+/*.first a {border:1px solid #000; opacity: .05}*/
+.first a:hover {text-decoration: underline;}
+.first .ft {position:absolute; width:100%;padding:11px 0; bottom:0; left:0; color:#fff; font-weight:bolder;}
+.first .ft .txt {padding:0 11px; letter-spacing:-1px; white-space:nowrap; text-overflow:ellipsis;}
+.conBox .tile {width:138px; height:149px; background:#fbfbfb }
+.conBox .tile a {color:#616161;}
+.conBox .tile a:hover {text-decoration: underline; color:#390;}
+.conBox .tile img{display:block; width:138px; height:82px;}
+.conBox .tile  .tit{display:block; width:118px; height:30px; padding: 8px 9px 0; word-break:break-all; word-warp:break-word; white-space:pre-wrap; border-left:1px solid #d6d6d6; border-right:1px solid #d6d6d6;}
+.conBox .category {display:block; width:118px; height:18px; padding:4px 9px 6px; font-size:11px; color:#999; white-space: nowrap; text-overflow: ellipsis; border-left:1px solid #d6d6d6; border-right:1px solid #d6d6d6; border-bottom:1px solid #d6d6d6;}
+.conBox .category a {display:inline; color:#999;}
+
+/*{display: block;overflow: hidden;padding: 0 11px;font-size: 14px;line-height: 16px;color: #fff!important;letter-spacing: -1px;white-space: nowrap;text-overflow: ellipsis;}*/
