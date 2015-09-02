@@ -6,18 +6,18 @@
 <meta charset="UTF-8">
 <title>Tab Contents</title>
 <link rel="stylesheet" src="http://normalize-css.googlecode.com/svn/trunk/normalize.css">
-<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]--> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+<!--[if lt IE 9]> <script src="http://html5shiv-printshiv.googlecode.com/svn/trunk/html5shiv-printshiv.js"></script><![endif]-->
 <style type="text/css">
 	* {margin: 0; padding: 0;}
 	body {font-family: Dotum,'돋움',Helvetica,AppleSDGothicNeo,sans-serif; font-size: 12px;}
 	a {text-decoration:none;}
 	a:hover {text-decoration:underline;}
 	li {list-style: none;}
+	.ie8 img {border: 0;}
 	.blind {overflow:hidden;position:absolute;width:0;height:0;line-height:0;text-indent:-9999px;}
 	#wrapper {margin:30px;}
 	#wrapper > a {color:#999;}
-	.tab-container {overflow-y: auto; position: relative; width: 633px; height: 730px; border: 1px solid #d6d6d6;}
+	.tab-container {overflow-y: auto; position: relative; width: 633px; height: 560px; border: 1px solid #d6d6d6;}
 	.tab-nav {background-color: #f3f3f5;}
 	.tab-nav-a {display: block; height: 45px;background-image: url(nav.gif);}
 		.tab-nav-life .tab-nav-a {width: 53px; background-position: -1px 0;}
@@ -35,20 +35,24 @@
 	.tab-cnts {margin:9px 8px 22px 21px;}
 	.lst-thumb {overflow: hidden;}
 	.item {overflow: hidden; position: relative; float: left; width: 138px; height: 149px; margin-top: 13px; margin-right: 13px;}
-	.item-a {display: block;}
-	.area-thumb {display: block; width: 100%; height: 82px;}	
+	.item-a {display: block; color: #616161;}
+		.item-a:hover {color: #339900;}
+	.area-thumb {display: block; position: relative; width: 100%; height: 82px;}	
 	.img-thumb {width: 100%;}
+	.mask-thumb {position: absolute; left: 0; right: 0; top: 0; bottom: 0; border: 1px solid #000; border-bottom: none; opacity: .05; filter:alpha(opacity=5);}
+	.badge-thumb {position: absolute; left: 0; top: 0; height: 17px; padding: 2px 5px 0;}
+	.badge-text {position: relative; z-index: 1; font-style: normal; font-size: 11px; color: #fff !important; opacity: 0.9; filter:alpha(opacity=90);}
+	.badge-bg {position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-color: #000; opacity: 0.4; filter:alpha(opacity=40);}
 	.icon-play {position: absolute; top:57px; left: 6px; width: 19px; height: 19px; background: url(icon-play.png) no-repeat; text-indent: -10000px;}
 	.title-lst, 
 	.stxt-lst {border-left:1px solid #ececec; border-right:1px solid #ececec; background-color: #fbfbfb;}
-	.title-lst {overflow: hidden; height: 30px; padding: 8px 9px 0; line-height: 15px; font-weight: bold; color: #616161;}
-		.item-a:hover .title-lst {color: #339900;}
+	.title-lst {overflow: hidden; height: 30px; padding: 8px 9px 0; line-height: 15px; font-weight: bold;}
 	.stxt-lst {overflow: hidden; height: 18px; padding: 4px 9px 6px; border-bottom:1px solid #ececec; font-size: 11px; color:#999; white-space: nowrap; text-overflow:ellipsis;}	
 	.item-promotion {position: relative; width: 289px;}
 	.item-promotion .area-thumb {height: 100%;}
 	.item-promotion .title-lst {position: absolute; bottom: 0; height: auto; margin-bottom: 10px; border: none; background-color: transparent; font-size: 14px; color: #fff !important; white-space: nowrap; text-overflow:ellipsis;}
 		.item-promotion .item-a:hover .title-lst {text-decoration: underline;}
-	.item-promotion .stxt-lst {position: absolute; bottom: 20px; border: none; background-color: transparent; color: #fff !important; opacity: 0.9;}
+	.item-promotion .stxt-lst {position: absolute; bottom: 20px; border: none; background-color: transparent; color: #fff !important; opacity: 0.9; filter:alpha(opacity=90);}
 
 	.js .tab-container {overflow: hidden;}
 	.js .tab-nav {float: left; border-bottom: solid 1px #d6d6d6;}
@@ -65,9 +69,8 @@
 	.js .active.tab-nav-naver .tab-nav-a {background-position: -445px -52px;}
 	.js .active.tab-nav-open .tab-nav-a {background-position: -516px -52px;}
 	.js .active.tab-nav-public .tab-nav-a {background-position: -578px -52px;}
-	.js .tab-cnts {position: absolute; top: 45px; left: 0; right: 0;}
-	.js .tab-cnts {display: none;}
-	.js .tab-nav.active + .tab-cnts {display: block;}	
+	.js .tab-cnts {display: none;position: absolute; top: 45px; left: 0; right: 0;}
+	.js .tab-cnts.show {display: block;}	
 </style>
 </head>
 <body>
@@ -77,98 +80,64 @@
 	<h2 class="blind">네이버 주제형 캐스트</h2>
 	<section class="tab-container">
 		<h3 class="tab-nav tab-nav-life"><a href="#href" class="tab-nav-a"><span class="blind">라이프</span></a></h3>
-		<div class="tab-cnts">라이프 컨텐츠</div>	
+		<div class="tab-cnts">			
+			<p class="blind">내용을 가져오기 전입니다. 내용을 보실려면 라이프을 눌러주세요.</p>
+		</div>	
 
 		<h3 class="tab-nav tab-nav-sports"><a href="#href" class="tab-nav-a"><span class="blind">스포츠</span></a></h3>
-		<div class="tab-cnts">스포츠 컨텐츠</div>
+		<div class="tab-cnts">
+			<p class="blind">내용을 가져오기 전입니다. 내용을 보실려면 스포츠을 눌러주세요.</p>
+		</div>
 
 		<h3 class="tab-nav tab-nav-car"><a href="#href" class="tab-nav-a"><span class="blind">차/테크</span></a></h3>
-		<div class="tab-cnts">차/테크 컨텐츠</div>
+		<div class="tab-cnts">
+			<p class="blind">내용을 가져오기 전입니다. 내용을 보실려면 차/테크을 눌러주세요.</p>
+		</div>
 
 		<h3 class="tab-nav tab-nav-webtoon"><a href="#href" class="tab-nav-a"><span class="blind">웹툰</span></a></h3>
-		<div class="tab-cnts">웹툰 컨텐츠</div>
+		<div class="tab-cnts">
+			<p class="blind">내용을 가져오기 전입니다. 내용을 보실려면 웹툰을 눌러주세요.</p>
+		</div>
 
 		<h3 class="tab-nav tab-nav-game"><a href="#href" class="tab-nav-a"><span class="blind">게임</span></a></h3>
-		<div class="tab-cnts">게임 컨텐츠</div>
+		<div class="tab-cnts">
+			<p class="blind">내용을 가져오기 전입니다. 내용을 보실려면 게임을 눌러주세요.</p>
+		</div>
 
 		<h3 class="tab-nav tab-nav-tv"><a href="#href" class="tab-nav-a"><span class="blind">TV/동영상</span></a></h3>
-		<div class="tab-cnts">TV/동영상 컨텐츠</div>
+		<div class="tab-cnts">
+			<p class="blind">내용을 가져오기 전입니다. 내용을 보실려면 TV/동영상을 눌러주세요.</p>
+		</div>
 
 		<h3 class="tab-nav tab-nav-music"><a href="#href" class="tab-nav-a"><span class="blind">뮤직</span></a></h3>
 		<div class="tab-cnts">
-			<ul class="lst-thumb">
-				<li class="item item-promotion">
-					<a href="#href" class="item-a">
-						<span class="area-thumb"><img src="http://img.naver.net/static/www/mobile/edit/2015/0826/mobile_16390134880.JPG" class='img-thumb'></span>
-						<p class="title-lst">메이저와 언더의 결합. 사이먼 도미닉 외</p>
-					</a>
-					<p class="stxt-lst">이주의 발견 - 국내 : 사이먼 도미닉</p>
-				</li>
-				<li class="item">
-					<a href="#href" class="item-a">
-						<span class="area-thumb"><img src="http://img.naver.net/static/www/mobile/edit/2015/0826/mobile_164832592901.JPG" class="img-thumb"></span>
-						<p class="icon-play">영상 <span class="blind">컨텐츠</span></p>
-						<p class="title-lst">괜히 '서출구 서출구'하는 게 아니야</p>
-					</a>
-					<p class="stxt-lst">서출구 - 동네 + 새벽라디오</p>
-				</li>
-				<li class="item">
-					<a href="#href" class="item-a">
-						<span class="area-thumb"><img src="http://img.naver.net/static/www/mobile/edit/2015/0826/mobile_164832592901.JPG" class="img-thumb"></span>
-						<p class="icon-play">영상 <span class="blind">컨텐츠</span></p>
-						<p class="title-lst">괜히 '서출구 서출구'하는 게 아니야</p>						
-					</a>
-					<p class="stxt-lst">서출구 - 동네 + 새벽라디오</p>
-				</li>
-				<li class="item">
-					<a href="#href" class="item-a">
-						<span class="area-thumb"><img src="http://img.naver.net/static/www/mobile/edit/2015/0826/mobile_164832592901.JPG" class="img-thumb"></span>
-						<p class="icon-play">영상 <span class="blind">컨텐츠</span></p>
-						<p class="title-lst">괜히 '서출구 서출구'하는 게 아니야</p>
-					</a>
-					<p class="stxt-lst">서출구 - 동네 + 새벽라디오</p>
-				</li>
-				<li class="item">
-					<a href="#href" class="item-a">
-						<span class="area-thumb"><img src="http://img.naver.net/static/www/mobile/edit/2015/0826/mobile_164832592901.JPG" class="img-thumb"></span>
-						<p class="icon-play">영상 <span class="blind">컨텐츠</span></p>
-						<p class="title-lst">괜히 '서출구 서출구'하는 게 아니야</p>						
-					</a>
-					<p class="stxt-lst">서출구 - 동네 + 새벽라디오</p>
-				</li>
-				<li class="item">
-					<a href="#href" class="item-a">
-						<span class="area-thumb"><img src="http://img.naver.net/static/www/mobile/edit/2015/0826/mobile_164832592901.JPG" class="img-thumb"></span>
-						<p class="icon-play">영상 <span class="blind">컨텐츠</span></p>
-						<p class="title-lst">괜히 '서출구 서출구'하는 게 아니야</p>
-					</a>
-					<p class="stxt-lst">서출구 - 동네 + 새벽라디오</p>
-				</li>
-				<li class="item">
-					<a href="#href" class="item-a">
-						<span class="area-thumb"><img src="http://img.naver.net/static/www/mobile/edit/2015/0826/mobile_164832592901.JPG" class="img-thumb"></span>
-						<p class="icon-play">영상 <span class="blind">컨텐츠</span></p>
-						<p class="title-lst">괜히 '서출구 서출구'하는 게 아니야</p>						
-					</a>
-					<p class="stxt-lst">서출구 - 동네 + 새벽라디오</p>
-				</li>
-			</ul>
+			<p class="blind">내용을 가져오기 전입니다. 내용을 보실려면 영화를 눌러주세요.</p>
 		</div>
 
 		<h3 class="tab-nav tab-nav-moive"><a href="#href" class="tab-nav-a"><span class="blind">영화</span></a></h3>
-		<div class="tab-cnts">영화 컨텐츠</div>
+		<div class="tab-cnts">
+			<p class="blind">내용을 가져오기 전입니다. 내용을 보실려면 영화를 눌러주세요.</p>
+		</div>
 
 		<h3 class="tab-nav tab-nav-book"><a href="#href" class="tab-nav-a"><span class="blind">책/공연</span></a></h3>
-		<div class="tab-cnts">책/공연 컨텐츠</div>
+		<div class="tab-cnts">
+			<p class="blind">내용을 가져오기 전입니다. 내용을 보실려면 책/공연을 눌러주세요.</p>
+		</div>
 
 		<h3 class="tab-nav tab-nav-naver"><a href="#href" class="tab-nav-a"><span class="blind">네이버캐스트</span></a></h3>
-		<div class="tab-cnts">네이버캐스트 컨텐츠</div>
+		<div class="tab-cnts">
+			<p class="blind">내용을 가져오기 전입니다. 내용을 보실려면 네이버캐스트를 눌러주세요.</p>
+		</div>
 
 		<h3 class="tab-nav tab-nav-open"><a href="#href" class="tab-nav-a"><span class="blind">오픈캐스트</span></a></h3>
-		<div class="tab-cnts">오픈캐스트 컨텐츠</div>
+		<div class="tab-cnts">
+			<p class="blind">내용을 가져오기 전입니다. 내용을 보실려면 오픈캐스트를 눌러주세요.</p>
+		</div>
 
 		<h3 class="tab-nav tab-nav-public"><a href="#href" class="tab-nav-a"><span class="blind">공익/나눔</span></a></h3>
-		<div class="tab-cnts">공익/나눔 컨텐츠</div>
+		<div class="tab-cnts">
+			<p class="blind">내용을 가져오기 전입니다. 내용을 보실려면 공익/나눔을 눌러주세요.</p>
+		</div>
 	</section>
 	
 </div>		
@@ -176,7 +145,13 @@
 <script>
 	UI = {
 		load : function(){
+			this.jsOn();
 			this.tabCtrl();
+		}
+		, jsOn : function(){
+			var html = document.querySelectorAll('html')[0];
+			UTIL.removeClass(html, 'no-js');
+			UTIL.addClass(html, 'js');
 		}
 		, tabCtrl : function(){
 			//선택자 선언
@@ -185,40 +160,89 @@
 				tabNavs = doc.querySelectorAll('.tab-nav-a');
 			
 			// 클래스명 
-			var cnActive = 'active';
+			var cnActive = 'active',
+				cnShow = 'show';
 			
 			// 변수 선언
-			var focused = 'music';
+			var focusedItem = 'music'; //초기 카테고리
 
 			// 함수
 			var init = function(){
-				if(focused) {
-					focused = doc.querySelectorAll('.tab-nav-' + focused)[0];
-					tabActive(focused);
+				if(focusedItem) {
+					focusedItem = doc.querySelectorAll('.tab-nav-' + focusedItem)[0];
+					drawItem(focusedItem);
+					tabActive(focusedItem);
 				}
+			}
+			var drawItem = function(obj){
+				var dummy = [];
+				var dataCategory;
+				var _tplLi, _tplPlay, _tplBadge;
+				var templet = '{tplLi}<a href="{url}" class="item-a"><span class="area-thumb"><img src="{imgUrl}" class="img-thumb"><span class="mask-thumb"></span>{tplBadge}</span>{tplPlay}<p class="title-lst">{title}</p></a><p class="stxt-lst">{text}</p></li>'
+				dummy.push('<ul class="lst-thumb">');
+
+				//선택한 탭에 따라 category 분류하여 DATA 받아옴
+				if(UTIL.hasClass(obj, 'tab-nav-music')) {
+					dataCategory = DATA.MUSIC;
+				} else if(UTIL.hasClass(obj, 'tab-nav-tv')){
+					dataCategory = DATA.TV;
+				}
+
+				for(var i=0; i<dataCategory.length ; i++){
+					var data = dataCategory[i];
+					var tpl = templet;
+					_tplLi = i==0 ? '<li class="item item-promotion">' : '<li class="item">';
+					_tplPlay = data.play ? '<p class="icon-play">영상 <span class="blind">컨텐츠</span></p>' : '';
+					_tplBadge = data.badge ? '<span class="badge-thumb"><em class="badge-text">'+ data.badge + '</em><span class="badge-bg"></span></span>' : '';
+					tpl = tpl.replace('{tplLi}', _tplLi)
+								.replace("{url}", data.url)
+								.replace("{imgUrl}", data.imgUrl)
+								.replace("{tplPlay}", _tplPlay)
+								.replace("{tplBadge}", _tplBadge)
+								.replace("{title}", data.title)
+								.replace("{text}", data.text);
+					dummy.push(tpl);					
+				}
+
+				dummy.push('</ul>');
+				UTIL.getNextSibling(obj).innerHTML = dummy.join('');
 			}
 			var tabActive = function(e){
 				UTIL.addClass(e, cnActive);
+				UTIL.addClass(UTIL.getNextSibling(e), cnShow);
 			}
 			var tabUnActive = function(e){
 				UTIL.removeClass(e, cnActive);
+				UTIL.removeClass(UTIL.getNextSibling(e), cnShow);
 			}
 			
 			// 이벤트	
 			for(var i=0; i<tabNavs.length; i++) {
 				tabNavs[i].onclick = function(){
+
 					if(!UTIL.hasClass(this, 'tab-nav-a')) return;
-					if(focused) tabUnActive(focused);
+
+					if(focusedItem) tabUnActive(focusedItem);
 					tabActive(this.parentNode);
-					focused = this.parentNode;
+					focusedItem = this.parentNode;
+					
+					//클릭한 탭메뉴의 컨텐츠가 없으면 불러온다.
+					if(!UTIL.getNextSibling(focusedItem).querySelectorAll('.lst-thumb').length) { 
+						drawItem(focusedItem);
+					}
 				}
-			}				
+			}
 			/*tabCnts.onclick = function(e){
 				var target = e.srcElement || e.target;
 				if(!UTIL.hasClass(target, 'tab-nav-a')) return;
-				if(focused) tabUnActive(focused);
+				if(focusedItem) tabUnActive(focusedItem);
 				tabActive(target.parentNode);
-				focused = target.parentNode;
+				focusedItem = target.parentNode;
+
+				//클릭한 탭메뉴의 컨텐츠가 없으면 컨텐츠를 불러온다.
+				if(!UTIL.getNextSibling(focusedItem).querySelectorAll('.lst-thumb').length) {
+					drawItem(focusedItem);
+				}
 			}*/
 			
 			init();
@@ -226,7 +250,35 @@
 		}
 	}
 
-	// 유틸
+	DATA = {
+		TV : [
+			{value:1, play: false,  title : '"만능 엄친딸" 한승연, 독보적 영어 발음!', text : '학교 다녀오겠습니다 ', url :'#href', imgUrl : 'http://img.naver.net/static/www/mobile/edit/2015/0902/mobile_070826640907.jpg'},
+			{value:2, play: true, title : '1박2일 어게인! 유쾌한 제작발표회', text : '신서유기 | 4일(금) 첫 방송', url :'#href', imgUrl : 'http://img.naver.net/static/www/mobile/edit/2015/0902/mobile_085100808298.jpg', badge : '다시보기'},
+			{value:3, play: true, title : '생존을 위한 인류의 변신, 흰 피부', text : '넥스트 휴먼 | 3일(목) 23시', url :'#href', imgUrl : 'http://img.naver.net/static/www/mobile/edit/2015/0901/mobile_182046608149.png', badge : 'D-1'},
+			{value:4, play: false, title : '국내에 이런 음악하는 팀 없어요', text : 'NP유니온 인터뷰', url :'#href', imgUrl : 'http://img.naver.net/static/www/mobile/edit/2015/0901/mobile_232952612123.JPG', badge : '뮤지션리그'},
+			{value:5, play: false, title : '가을에는 이런 페스티벌이 딱', text : '폴인어쿠스틱 페스티벌', url :'#href', imgUrl : 'http://img.naver.net/static/www/mobile/edit/2015/0901/mobile_231420894557.JPG', badge : '공연초대'},
+			{value:6, play: true, title : '타블로 X 조이 배드애스 콜라보!', text : '서울편 티저도 공개', url :'#href', imgUrl : 'http://img.naver.net/static/www/mobile/edit/2015/0902/mobile_110208465848.JPG'},
+			{value:7, play: false, title : '이런 라인업이면 당연히 가야죠', text : '글로벌 게더링 라인업공개', url :'#href', imgUrl : 'http://img.naver.net/static/www/mobile/edit/2015/0901/mobile_22580151510.JPG'},
+			{value:8, play: false, title : '유희열도 "유재하경연대회"" 출신!', text : '26번째 유재하를 찾습니다', url :'#href', imgUrl : 'http://img.naver.net/static/www/mobile/edit/2015/0901/mobile_123032540940.JPG'},
+			{value:9, play: false, title : '카니예, 美 대선 캠페인 이미 시작?', text : '백악관 반응은?', url :'#href', imgUrl : 'http://img.naver.net/static/www/mobile/edit/2015/0901/mobile_123253605208.JPG'},
+			{value:10, play: false, title : '데미안 라이스, 11월 내한 공연 확정', text : '11월 22일,24일 공연', url :'#href', imgUrl : 'http://img.naver.net/static/www/mobile/edit/2015/0901/mobile_112344624225.JPG'},
+			{value:11, play: false, title : '가을엔 당연히 "가을방학"" 입니다', text : '가을방학 앨범 작업기', url :'#href', imgUrl : 'http://img.naver.net/static/www/mobile/edit/2015/0831/mobile_163648519290.JPG'}
+		], 
+		MUSIC : [
+			{value:1, play: false,  title : '이진아 X 박진영 "공항 가는 길" 공개!', text : '', url :'#href', imgUrl : 'http://img.naver.net/static/www/mobile/edit/2015/0901/mobile_114127499219.JPG'},
+			{value:2, play: true, title : 'JYP 최초 6인조 남성밴드 데뷔', text : 'DAY6 데뷔 티저공개', url :'#href', imgUrl : 'http://img.naver.net/static/www/mobile/edit/2015/0902/mobile_111414191809.JPG'},
+			{value:3, play: false, title : '임재범 30주년 "헌정 앨범"" 나온다', text : '새 앨범과 동시 진행중', url :'#href', imgUrl : 'http://img.naver.net/static/www/mobile/edit/2015/0902/mobile_110536239155.JPG'},
+			{value:4, play: false, title : '가을에는 이런 페스티벌이 딱', text : '폴인어쿠스틱 페스티벌', url :'#href', imgUrl : 'http://img.naver.net/static/www/mobile/edit/2015/0901/mobile_231420894557.JPG', badge : '공연초대'},
+			{value:5, play: false, title : '국내에 이런 음악하는 팀 없어요', text : 'NP유니온 인터뷰', url :'#href', imgUrl : 'http://img.naver.net/static/www/mobile/edit/2015/0901/mobile_232952612123.JPG', badge : '뮤지션리그'},
+			{value:6, play: false, title : '이런 라인업이면 당연히 가야죠', text : '글로벌 게더링 라인업공개', url :'#href', imgUrl : 'http://img.naver.net/static/www/mobile/edit/2015/0901/mobile_22580151510.JPG'},
+			{value:7, play: true, title : '타블로 X 조이 배드애스 콜라보!', text : '서울편 티저도 공개', url :'#href', imgUrl : 'http://img.naver.net/static/www/mobile/edit/2015/0902/mobile_110208465848.JPG'},
+			{value:8, play: false, title : '카니예, 美 대선 캠페인 이미 시작?', text : '백악관 반응은?', url :'#href', imgUrl : 'http://img.naver.net/static/www/mobile/edit/2015/0901/mobile_123253605208.JPG'},
+			{value:9, play: false, title : '유희열도 "유재하경연대회"" 출신!', text : '26번째 유재하를 찾습니다', url :'#href', imgUrl : 'http://img.naver.net/static/www/mobile/edit/2015/0901/mobile_123032540940.JPG'},
+			{value:10, play: false, title : '가을엔 당연히 "가을방학"" 입니다', text : '가을방학 앨범 작업기', url :'#href', imgUrl : 'http://img.naver.net/static/www/mobile/edit/2015/0831/mobile_163648519290.JPG'},
+			{value:11, play: false, title : '데미안 라이스, 11월 내한 공연 확정', text : '11월 22일,24일 공연', url :'#href', imgUrl : 'http://img.naver.net/static/www/mobile/edit/2015/0901/mobile_112344624225.JPG'}
+		]
+	}
+	
 	UTIL = {
 		addClass : function(e, clsName){
 			var cn = e.className;
@@ -242,6 +294,13 @@
 		}
 		, hasClass : function(target, clsName) {
 		    return new RegExp('(\\s|^)' + clsName + '(\\s|$)').test(target.className);
+		}
+		, getNextSibling : function(e)  {
+			var x = e.nextSibling;
+			while(x.nodeType != 1) {
+				x = x.nextSibling;
+			}
+			return x;
 		}
 	}
 

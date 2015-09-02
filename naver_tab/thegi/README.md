@@ -10,29 +10,22 @@
 
 ## UX
 
-1. 탭메뉴를 노출한다.
-2. 특정한 탭메뉴의 컨텐츠를 뿌려준다.
-3. 다른 탭을 누르면 
-	- 활성화 되어 있는 탭메뉴 비활성화하고 보여지던 컨텐츠는 사라진다.
-	- 선택된 탭은 활성화 하고 해당탭의 컨텐츠를 보여준다.
-
-## Events
-
 1. Load
-	- [Tab Active], [Content Show]
-2. Key Focus In
-	- 활성화 되어 있던 Tab Menu : [Tab UnActive]
-	- Fouse된 Tab :  [Tab Active]
-3. Mouse Click or Key Enter 
-	- 활성화 되어 있던 Tab Menu : [Tab UnActive]
-	- 보여지고 있던 Content : [Content Hide ]
-	- Click한 Tab :  [Tab Active]
-	- Click한 Tab의 Content :  [Content Show]
-4. Common Action
-	- [Tab Active] : Tab 활성화
-	- [Tab UnActive] : Tab 비활성화
-	- [Content Show] : 특정 Tab 컨텐츠 Show
-	- [Content Hide] : 특정 Tab 컨텐츠 Hide
+	- 탭메뉴 보여준다.
+	- 특정 탭메뉴 활성화하고 그 탭메뉴의 컨텐츠 데이터를 받아오고 템플릿을 그려준다.
+2. Mouse Click or Key Enter 
+	- 이전 탭 비활성화 : 활성화 되어 있던 Tab Menu는 비활성화하고 연관 컨텐츠는 hide 한다.
+	- 선택한 탭 활성화 : Click한 Tab Menu는 활성하하고 연관 컨텐츠는 show 한다. 연관 컨텐츠를 가져오기 전이면 그 컨텐츠 데이터를 받아오고 템플릿을 그려준다.
+
 
 ## 과제 및 질문
 
+1. js 적용 전후 구분하여 css 수정
+2. ie8부터 사용가능한 js 사용
+3. click 이벤트 : 더 간결한 방법은?
+
+
+## 새롭게 알게 된 내용
+
+1. ie8에서 css의 '+'를 이용하여 display:block을 사용할 경우 속도가 느려진다. 
+	- .tab-nav.active + .tab-cnts {display:block;}
