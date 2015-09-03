@@ -1,4 +1,4 @@
-# NAVER Tab Contents
+# Tab Contents Show/Hide
 
 ## 기본 구현 정보
 
@@ -24,8 +24,15 @@
 2. ie8부터 사용가능한 js 사용
 3. click 이벤트 : 더 간결한 방법은?
 
+## 웹표준, 웹접근성 검사
+1. 웹표준 마크업 검사 : https://validator.w3.org/
+2. css 검사 : http://jigsaw.w3.org/css-validator/#validate_by_input
+3. js lint :  www.jslint.com/
+	- Use spaces, not tabs ?
+	- "use strict"; ?
 
 ## 새롭게 알게 된 내용
 
 1. ie8에서 css의 '+'를 이용하여 display:block을 사용할 경우 속도가 느려진다. 
 	- .tab-nav.active + .tab-cnts {display:block;}
+2. jQuery 2.x 는 ie8을 지원하지 않는다. 따라서 ie8+의 웹호환성에서는 jQuery 1.x 시리즈를 사용해야한다.
