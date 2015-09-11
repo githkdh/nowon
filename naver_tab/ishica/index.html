@@ -87,13 +87,42 @@
 						</a>
 						<span class="category">블로그 | 해피샐러드</span>
 					</li>
-					<li class="tile"><a href="#">가을이 오면 하나쯤! 가죽 라이더 재킷<span>패션/뷰티 | 보그걸</span></a></li>
-					<li class="tile"><a href="#">발리의 매혹적인 반반 매력을 찾아서<span>여행/맛집 | 뚜르드몽드</span></a></li>
-					<li class="tile"><a href="#">작지만 알찬 10평 이하 가게세 얼마?<span>부동산</span></a></li>
-					<li class="tile"><a href="#">반찬이 필요 없는 꿀맛 한 그릇<span>포스트 | 핸디쿡</span></a></li>
-					<li class="tile"><a href="#">잘나가는 뷰티템 기록이 말해준다<span>패션/뷰티 | 보그걸</span></a></li>
+					<li class="tile">
+						<a href="#">
+							<img src="http://img.naver.net/static/www/mobile/edit/2015/0831/mobile_215939733759.jpg" alt="가을이 오면 하나쯤! 가죽 라이더 재킷">
+							<span class="tit">냉장고 재료로, 떠 먹는 감자 피자</span>
+						</a>
+						<span class="category">패션/뷰티 | 보그걸</span>
+					</li>
+					<li class="tile">
+						<a href="#">
+							<img src="http://img.naver.net/static/www/mobile/edit/2015/0831/mobile_162023839710.jpg" alt="선선해서 잘 말라요, 현관문 페인팅">
+							<span class="tit">선선해서 잘 말라요, 현관문 페인팅</span>
+						</a>
+						<span class="category">블로그 | JJung</span>
+					</li>
+					<li class="tile">
+						<a href="#">
+							<img src="http://img.naver.net/static/www/mobile/edit/2015/0901/mobile_110044236716.jpg" alt="다이어트,">
+							<span class="tit">다이어트, 잠이 보약이다?</span>
+						</a>
+						<span class="category">패션/뷰티 | ELLE</span>
+					</li>
+					<li class="tile"><a href="#">
+						<a href="#">
+							<img src="http://img.naver.net/static/www/mobile/edit/2015/0831/mobile_215939733759.jpg" alt="냉장고 재료로, 떠 먹는 감자 피자">
+							<span class="tit">냉장고 재료로, 떠 먹는 감자 피자</span>
+						</a>
+						<span class="category">블로그 | 해피샐러드</span>
+					</li>
+					<li class="tile">
+						<a href="#">
+							<img src="http://img.naver.net/static/www/mobile/edit/2015/0831/mobile_215939733759.jpg" alt="가을이 오면 하나쯤! 가죽 라이더 재킷">
+							<span class="tit">냉장고 재료로, 떠 먹는 감자 피자</span>
+						</a>
+						<span class="category">패션/뷰티 | 보그걸</span>
+					</li>
 				</ul>
-
 			</div>
 
 			<h3 class="themeTit-spo"><a href="#">스포츠</a></h3>
@@ -139,15 +168,14 @@
 	        event.preventDefault();
 	        var o = $(this).parent();
 	        if(o.hasClass('on')){
-	            o.removeClass('on').find('themeCon').slideUp();
+	            o.removeClass('on').find('themeCon');
 	        }else{
-	        	$('h3[class^=themeTit-].on').removeClass('on').find('themeCon').slideUp();
-	            o.addClass('on').find('themeCon').slideDown();
+	        	$('h3[class^=themeTit-].on').removeClass('on').find('themeCon');
+	            o.addClass('on').find('.themeTit-lif+.themeCon');
 	        }
 
 	    });
     });
-
 </script>
 
 
